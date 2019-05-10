@@ -1,0 +1,40 @@
+<div class="container">
+  {{!-- <a class="navbar-brand" href="https://karir.bca.co.id">karir.bca.co.id</a> --}}
+  <a class="navbar-brand" href="https://karir.bca.co.id">
+    <img src="/assets/images/logo.png" alt="Logo BCA">
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbar-menu"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar-menu">
+    <ul class="navbar-nav ml-auto font-champagne">
+      {{!-- {{#nav/nav-item "index"}}Home{{/nav/nav-item}}
+      {{#nav/nav-item "about"}}About{{/nav/nav-item}} --}}
+      {{#link-to "routes.admin" class="navbar-brand font-signika"}}Admin{{/link-to}}
+      {{!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> --}}
+      {{!-- <li class="nav-item">
+        <a class="nav-link disabled" href="#">Jobs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Blog</a>
+      </li> --}}
+    </ul>
+  </div>
+</div>

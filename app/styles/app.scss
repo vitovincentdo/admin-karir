@@ -1,0 +1,32 @@
+@import "bootstrap/bootstrap";
+@import "parts/navbar";
+@import "parts/slice";
+@import "parts/main";
+@import "parts/admin";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: black;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.font-race {
+  font-family: $font-family-race;
+}
+
+.font-champagne {
+  font-family: $font-family-champagne;
+}
+
+.font-signika{
+  font-family: $font-family-signika;
+}
+.navi{
+  color: black;
+}

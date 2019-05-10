@@ -1,0 +1,48 @@
+// NAVBAR
+
+// = Layout
+
+.navbar-brand {
+  img {
+    margin: -.75rem 0 -.25rem;
+    height: 40px;
+  }
+}
+
+.navbar-nav {
+  .nav-item {
+    padding-left: 1rem;
+  }
+}
+
+
+// = Style
+
+.navbar {
+  background-color: $dark;
+
+  @include media-breakpoint-up(md) {
+    opacity: .9;
+
+    &.top {
+      background-color: transparent;
+    }
+  }
+}
+
+.navbar-nav {
+  .nav-item {
+    > .nav-link {
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+  }
+}
+
+
+// = Animation
+
+.navbar {
+  transition: background-color 1.2s;
+}
