@@ -20,10 +20,18 @@ body {
   top: 50%; left: 50%;
   transform: translate(-50%,-50%);
 }
-.card{
-  // width: 14rem;
-  // height: 18rem;
+.card-deck{
+  margin-left: auto;
+  margin-right: auto;
 }
-.card-img-top{
-  // height: 10rem;
+.card{
+  ul{
+    padding-inline-start: 30px;
+  }
+  &:hover, &:focus, &:active {
+    transform: translate(0, -.4rem);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition: .3s;
+    transition: .3s;
+  }
 }

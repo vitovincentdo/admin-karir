@@ -2,65 +2,35 @@
   <div class="container align-self-center child">
     <div class="row">
       <div class="card-deck">
-        <div class="card text-white bg-primary mb-3 col-md-6 col-lg-3">
-          <div class="card-body">
-            <h4 class="card-title">Article</h4>
-            <ul class="card-text">
-              <li>Add New Article</li>
-              <li>View All Articles</li>
-              <li>Edit Article</li>
-              <li>Delete Article</li>
-            </ul>
-            {{!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+        <div class="card  mb-3 ">
+          <div class="card-header">Article</div>
+          <div class="card-body text-secondary">
+            {{#link-to "routes.admin.article.insert-article"}}<button class="btn btn-primary">Add New Article</button>{{/link-to}}
+            {{#link-to "routes.admin.article.list-article"}}<button class="btn btn-primary">View All Article</button>{{/link-to}}
           </div>
         </div>
-        <div class="card text-white bg-primary mb-3 col-md-6 col-lg-3">
-          <div class="card-body">
-            <h4 class="card-title">Thought</h4>
-            <ul class="card-text">
-              <li>Add New Thought</li>
-              <li>View All Thoughts</li>
-              <li>Edit Thought</li>
-              <li>Delete Thought</li>
-            </ul>
-            {{!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+        <div class="card  mb-3 ">
+          <div class="card-header">Thought</div>
+          <div class="card-body text-secondary">
+            {{#link-to "routes.admin.thought.insert-thought"}}<button class="btn btn-primary">Add New Thought</button>{{/link-to}}
+            {{#link-to "routes.admin.thought.list-thought"}}<button class="btn btn-primary">View All Thought</button>{{/link-to}}
           </div>
         </div>
-        <div class="card text-white bg-primary mb-3 col-md-6 col-lg-3">
-          <div class="card-body">
-            <h4 class="card-title">Job</h4>
-            <ul class="card-text">
-              <li>Add New Job</li>
-              <li>View All Jobs</li>
-              <li>Edit Job</li>
-              <li>Delete Job</li>
-            </ul>
-            {{!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+        <div class="card  mb-3 ">
+          <div class="card-header">Job</div>
+          <div class="card-body text-secondary">
+            {{#link-to "routes.admin.job.insert-job"}}<button class="btn btn-primary">Add New Job</button>{{/link-to}}
+            {{#link-to "routes.admin.job.list-job"}}<button class="btn btn-primary">View All Job</button>{{/link-to}}
           </div>
         </div>
-        <div class="card text-white bg-primary mb-3 col-md-6 col-lg-3">
-          <div class="card-body">
-            <h4 class="card-title">Counter</h4>
-            <p class="card-text">Edit Employee Counter.</p>
+        <div class="card  mb-3 ">
+          <div class="card-header">Employee Counter</div>
+          <div class="card-body text-secondary">
+            {{#link-to "routes.admin.thought.insert-thought"}}<button class="btn btn-primary">Edit Employee Counter</button>{{/link-to}}
           </div>
         </div>
       </div>
     </div>
-    {{!-- <div class="row">
-      {{#link-to 'admin.article'}}<button class="btn btn-primary">Article</button>{{/link-to}}
-      {{#link-to 'admin.listArticle'}}<button class="btn btn-primary">List All Article</button>{{/link-to}}
-    </div>
-    <div class="row">
-      {{#link-to 'admin.thoughts.thoughts'}}<button class="btn btn-primary">Thought</button>{{/link-to}}
-      {{#link-to 'admin.thoughts.list-thoughts'}}<button class="btn btn-primary">List All Thought</button>{{/link-to}}
-    </div>
-    <div class="row">
-      {{#link-to 'admin.jobs.job-input'}}<button class="btn btn-primary">job</button>{{/link-to}}
-      {{#link-to 'admin.jobs.list-jobs'}}<button class="btn btn-primary">List All jobs</button>{{/link-to}}
-    </div>
-    <div class="row">
-      {{#link-to 'admin.counter'}}<button class="btn btn-primary">Counter</button>{{/link-to}}
-    </div> --}}
   </div>
 </div>
 

@@ -1,0 +1,29 @@
+<div class="container-fluid admin-main slice">
+  <div class="container align-self-center">
+    <h1>Articles</h1>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |article|}}
+        <tr>
+          <td>{{article.id}}</td>
+          <td>{{article.title}}</td>
+          <td>{{article.date}}</td>
+          <td>
+            {{#link-to "routes.admin.article.edit-article" article.id class='btn btn-success'}}Edit{{/link-to}}
+            <br>
+            <button class="btn btn-danger" {{action "deleteArticle" article }}>Delete</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

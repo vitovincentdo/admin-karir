@@ -19,7 +19,7 @@
 // = Style
 
 .navbar {
-  background-color: $dark;
+  background-color: rgba(52,58,64,0.4);
 
   @include media-breakpoint-up(md) {
     opacity: .9;

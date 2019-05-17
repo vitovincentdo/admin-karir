@@ -76,10 +76,10 @@ export { default as jQ } from 'jquery';
 // export {
 //   debug as log
 // } from '@ember/debug';
-// import { ENVIRONMENT } from 'karir/utils/properties';
-// export function log() {
-//   if (ENVIRONMENT === 'development') console.log(...arguments);
-// }
+import { ENVIRONMENT } from 'karir-admin/utils/properties';
+export function log() {
+  if (ENVIRONMENT === 'development') console.log(...arguments);
+}
 
 // export default function short() {
 //   return true;
