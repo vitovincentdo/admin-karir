@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d946ade6-7587-4a27-a619-ef96783603e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.ember-cli" beforeDir="false" afterPath="$PROJECT_DIR$/../.ember-cli" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/components/view/view-navbar/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/components/view/view-navbar/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/index/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/index/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/index/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/index/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/styles/parts/_admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../app/styles/parts/_admin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/styles/parts/_main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../app/styles/parts/_main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/styles/parts/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../app/styles/parts/_navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/utils/properties.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/utils/properties.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/utils/short.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/utils/short.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config/environment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../config/environment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coba4.py" beforeDir="false" afterPath="$PROJECT_DIR$/coba4.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,14 +13,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.49072754">
+    <splitter split-orientation="horizontal" split-proportion="0.58346707">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/coba4.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="140">
-                  <caret line="1003" column="46" selection-start-line="1003" selection-start-column="46" selection-end-line="1003" selection-end-column="46" />
+                <state relative-caret-position="91">
+                  <caret line="1112" lean-forward="true" selection-start-line="1112" selection-end-line="1112" />
                   <folding>
                     <element signature="e#0#51#0" expanded="true" />
                   </folding>
@@ -45,8 +35,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/coba4.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5616">
-                  <caret line="667" column="54" lean-forward="true" selection-start-line="667" selection-start-column="54" selection-end-line="667" selection-end-column="54" />
+                <state relative-caret-position="121">
+                  <caret line="1107" column="13" selection-start-line="1107" selection-start-column="4" selection-end-line="1107" selection-end-column="13" />
                   <folding>
                     <element signature="e#0#51#0" expanded="true" />
                   </folding>
@@ -65,6 +55,8 @@
       <find>put job</find>
       <find>updateJob</find>
       <find>article_id</find>
+      <find>delete</find>
+      <find>deleteJob</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -77,10 +69,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="20" />
-    <option name="y" value="-20" />
-    <option name="width" value="1400" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-10" />
+    <option name="width" value="1386" />
     <option name="height" value="785" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -183,14 +174,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-10" y="0" width="1386" height="785" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.073364176" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0727003" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3512748" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4647239" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -207,8 +198,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/coba4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="1003" column="46" selection-start-line="1003" selection-start-column="46" selection-end-line="1003" selection-end-column="46" />
+        <state relative-caret-position="91">
+          <caret line="1112" lean-forward="true" selection-start-line="1112" selection-end-line="1112" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

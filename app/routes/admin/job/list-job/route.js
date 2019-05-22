@@ -3,5 +3,15 @@ import Route from '@ember/routing/route';
 export default Route.extend({
   model(){
     return this.get('store').findAll('job');
+  },
+
+  actions: {
+    deleteJob(job){
+      let confirmation = confirm('Are you sure?');
+
+      if(confirmation){
+        job.destroyRecord();
+      }
+    }
   }
 });

@@ -20,7 +20,11 @@ export default DS.RESTAdapter.extend({
       return url
   },
 
+  urlForDeleteRecord(id, modelName){
+    return host(`${this._removePrefix(modelName)}.delete`).replace(/:id/, id);
+  },
+
   _removePrefix(name) {
       return name.replace(`${MODEL_PREFIX}/`, '').replace(/\//g, '.');
-  } 
+  }
 });

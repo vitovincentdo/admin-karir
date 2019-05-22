@@ -719,6 +719,30 @@ def updateArticle(article_id):
     read_file.close()
   return resp
 
+# DELETE Article Data
+@app.route('/api/article/delete/<int:article_id>', methods=['DELETE'])
+def deleteArticle(article_id):
+  path = '../public/assets/content/articles/'
+  with open(path+'data.json', 'r+') as read_file:
+    data = json.load(read_file)
+    loadDict = data['articles']
+
+    filterData = [item for item in loadDict if item['id'] != article_id]
+    existsInnerData = os.path.isfile(path+'article/'+str(article_id)+'.json')
+    existImageDir = os.path.isdir(path+'article-image/'+str(article_id))
+    if existsInnerData:
+      os.remove(path + 'article/' + str(article_id) + '.json')
+    if existImageDir:
+      shutil.rmtree(path+'article-image/'+str(article_id))
+
+    filteredData = dict(articles=filterData)
+    read_file.seek(0)
+    read_file.truncate()
+    read_file.write(json.dumps(filteredData))
+    read_file.close()
+    resp = Response(status=200)
+  return resp
+
 # #GET Latest article Data
 # @app.route('/api/article/list', methods=['GET'])
 # def latestArticleList():
@@ -849,6 +873,30 @@ def updateThought(thought_id):
     read_file.truncate()
     read_file.write(json.dumps(temp2))
     read_file.close()
+  return resp
+
+# DELETE Thought Data
+@app.route('/api/thought/delete/<int:thought_id>', methods=['DELETE'])
+def deleteThought(thought_id):
+  path = '../public/assets/content/thoughts/'
+  with open(path+'data.json', 'r+') as read_file:
+    data = json.load(read_file)
+    loadDict = data['thoughts']
+
+    filterData = [item for item in loadDict if item['id'] != thought_id]
+    existsInnerData = os.path.isfile(path+'thought/'+str(thought_id)+'.json')
+    existImageDir = os.path.isdir(path+'thoughts-image/'+str(thought_id))
+    if existsInnerData:
+      os.remove(path + 'thought/' + str(thought_id) + '.json')
+    if existImageDir:
+      shutil.rmtree(path+'thoughts-image/'+str(thought_id))
+
+    filteredData = dict(thoughts=filterData)
+    read_file.seek(0)
+    read_file.truncate()
+    read_file.write(json.dumps(filteredData))
+    read_file.close()
+    resp = Response(status=200)
   return resp
 
 # #GET Latest Thought Data
@@ -1054,6 +1102,31 @@ def updateJob(job_id):
     read_file.write(json.dumps(temp2))
     read_file.close()
   return resp
+
+# DELETE Job Data
+@app.route('/api/job/delete/<int:job_id>', methods=['DELETE'])
+def deleteJob(job_id):
+  path = '../public/assets/content/jobs/'
+  with open(path+'data.json', 'r+') as read_file:
+    data = json.load(read_file)
+    loadDict = data['jobs']
+
+    filterData = [item for item in loadDict if item['id'] != job_id]
+    existsInnerData = os.path.isfile(path+'job/'+str(job_id)+'.json')
+    existImageDir = os.path.isdir(path+'jobs-image/'+str(job_id))
+    if existsInnerData:
+      os.remove(path + 'job/' + str(job_id) + '.json')
+    if existImageDir:
+      shutil.rmtree(path+'jobs-image/'+str(job_id))
+
+    filteredData = dict(jobs=filterData)
+    read_file.seek(0)
+    read_file.truncate()
+    read_file.write(json.dumps(filteredData))
+    read_file.close()
+    resp = Response(status=200)
+  return resp
+
 # #GET Latest job Data
 # @app.route('/api/job/list', methods=['GET'])
 # def latestJobList():
