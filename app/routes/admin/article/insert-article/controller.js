@@ -3,6 +3,7 @@ import Controller from '@ember/controller';
 export default Controller.extend({
     newTitle: '',
     newDate: '',
+    newTag: '',
     newImage: '',
     newContent: '',
     imageOptions:{
@@ -26,12 +27,14 @@ export default Controller.extend({
         saveArticle(){
             const title = this.get('newTitle');
             const date = this.get('newDate');
+            const tag = this.get('newTag');
             const thumbImage = this.get('newImage');
             const article = this.get('newContent');
 
             const newArticle = this.get('store').createRecord('article',{
                 title: title,
                 date: date,
+                tag: tag,
                 article: article,
                 thumbImage:thumbImage
             })

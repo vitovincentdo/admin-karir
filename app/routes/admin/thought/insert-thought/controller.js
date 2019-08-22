@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
     newName: '',
+    newPosition:'',
     newDate: '',
     newImgPerson: '',
     newThought: '',
@@ -23,13 +24,15 @@ export default Controller.extend({
     },
     actions:{
         saveThought(){
-            const name = this.get('newName')
-            const date = this.get('newDate')
-            const thought = this.get('newThought')
-            const thumbThought = this.get('newImgPerson')
+            const name = this.get('newName');
+            const position = this.get('newPosition');
+            const date = this.get('newDate');
+            const thought = this.get('newThought');
+            const thumbThought = this.get('newImgPerson');
 
             const newThought = this.get('store').createRecord('thought',{
                 name: name,
+                position: position,
                 date: date,
                 thought: thought,
                 thumbThought: thumbThought
@@ -38,6 +41,7 @@ export default Controller.extend({
             newThought.save();
 
             this.set('newName', '');
+            this.set('newPosition', '');
             this.set('newDate', '');
             this.set('newThought', '');
             this.set('newImgPerson','');

@@ -16,6 +16,12 @@
         </div>
       </div>
       <div class="form-group">
+        <label class="col-sm-2 control-label">Tag</label>
+        <div class="col-sm-10">
+          {{input type="text" value=model.tag class="form-control" placeholder="Insert Tag Title..."}}
+        </div>
+      </div>
+      <div class="form-group">
         <label class="col-sm-6 control-label">Image-Thumbnail (Drag & Drop Here)</label>
         <div class="col-sm-6">
           {{tinymce-editor options=imageOptions value=model.thumbImage}}

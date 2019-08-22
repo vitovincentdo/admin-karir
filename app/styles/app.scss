@@ -30,3 +30,24 @@ html, body {
 .navi{
   color: black;
 }
+
+.more{
+  padding: 15px 0;
+  // padding-top: 15px;
+  // padding-bottom: 15px;
+}
+
+.card-body{
+  @media screen and (min-width: 995px) {
+    span{
+      display: block;
+    }
+  }
+}
+
+.btn-mod{
+  margin: 0.5rem 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}

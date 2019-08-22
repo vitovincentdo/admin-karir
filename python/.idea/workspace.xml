@@ -2,7 +2,76 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d946ade6-7587-4a27-a619-ef96783603e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.ember-cli" beforeDir="false" afterPath="$PROJECT_DIR$/../.ember-cli" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/models/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/models/article.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/models/thought.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/models/thought.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/article/edit-article/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/article/edit-article/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/index/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/index/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/job/list-job/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/job/list-job/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/edit-thought/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/edit-thought/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/list-thought/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/list-thought/template.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../app/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/thumbnail-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/thumbnail-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/3/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/3/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/3/thumbnail-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/5/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/5/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/6/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/7/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/7/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/8/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/8/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/9/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/9/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/counter/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/counter/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/jobs/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/1/thumbnail-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/2/thumbnail-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/3/thumbnail-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/4/thumbnail-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/5/thumbnail-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/6/thumbnail-image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/1/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/1/thumbnail-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/2/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/2/thumbnail-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/3/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/3/thumbnail-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/4/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/5/thumbnail-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/6/thumbnail-image.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coba4.py" beforeDir="false" afterPath="$PROJECT_DIR$/coba4.py" afterDir="false" />
     </list>
@@ -13,40 +82,27 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.58346707">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/coba4.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="91">
-                  <caret line="1112" lean-forward="true" selection-start-line="1112" selection-end-line="1112" />
-                  <folding>
-                    <element signature="e#0#51#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/coba4.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="121">
-                  <caret line="1107" column="13" selection-start-line="1107" selection-start-column="4" selection-end-line="1107" selection-end-column="13" />
-                  <folding>
-                    <element signature="e#0#51#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coba4.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="83">
+              <caret line="478" column="32" lean-forward="true" selection-start-line="478" selection-start-column="32" selection-end-line="478" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -57,6 +113,26 @@
       <find>article_id</find>
       <find>delete</find>
       <find>deleteJob</find>
+      <find>write</find>
+      <find>temp3</find>
+      <find>postJsonArticleHandler</find>
+      <find>with open</find>
+      <find>file</find>
+      <find>tagContentToList</find>
+      <find>tempDict</find>
+      <find>PUT</find>
+      <find>request</find>
+      <find>loadDict</find>
+      <find>unloadUpdate</find>
+      <find>temp2</find>
+      <find>loadInner</find>
+      <find>print</find>
+      <find>PUT A</find>
+      <find>iter</find>
+      <find>POST J</find>
+      <find>POST Th</find>
+      <find>PUT JOB</find>
+      <find>POST JO</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -65,14 +141,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/testAja.py" />
         <option value="$PROJECT_DIR$/coba4.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="1386" />
-    <option name="height" value="785" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1611" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -80,7 +158,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -92,10 +169,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="C:/Python34/python3.4.exe" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -110,7 +189,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.coba4">
     <configuration name="coba4" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,6 +224,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/coba4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testAja" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testAja.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -156,6 +256,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.coba4" />
+        <item itemvalue="Python.testAja" />
         <item itemvalue="Python.coba4" />
       </list>
     </recent_temporary>
@@ -174,14 +275,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="1386" height="785" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0727003" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.02232143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4647239" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31096563" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -196,10 +297,20 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/testAja.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/coba4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="1112" lean-forward="true" selection-start-line="1112" selection-end-line="1112" />
+        <state relative-caret-position="83">
+          <caret line="478" column="32" lean-forward="true" selection-start-line="478" selection-start-column="32" selection-end-line="478" selection-end-column="32" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

@@ -2,31 +2,39 @@
   <div class="container align-self-center child">
     <div class="row">
       <div class="card-deck">
-        <div class="card  mb-3 ">
-          <div class="card-header">Article</div>
-          <div class="card-body text-secondary">
-            {{#link-to "routes.admin.article.insert-article"}}<button class="btn btn-primary">Add New Article</button>{{/link-to}}
-            {{#link-to "routes.admin.article.list-article"}}<button class="btn btn-primary">View All Article</button>{{/link-to}}
+        <div class="col-sm-12 col-md-6  col-lg-3 more">
+          <div class="card">
+            <div class="card-header">Article</div>
+            <div class="card-body text-secondary">
+              {{#link-to "routes.admin.article.insert-article"}}<button class="btn-mod btn btn-primary">Add New Article</button>{{/link-to}}
+              {{#link-to "routes.admin.article.list-article"}}<button class="btn-mod btn btn-primary">View All Article</button>{{/link-to}}
+            </div>
           </div>
         </div>
-        <div class="card  mb-3 ">
-          <div class="card-header">Thought</div>
-          <div class="card-body text-secondary">
-            {{#link-to "routes.admin.thought.insert-thought"}}<button class="btn btn-primary">Add New Thought</button>{{/link-to}}
-            {{#link-to "routes.admin.thought.list-thought"}}<button class="btn btn-primary">View All Thought</button>{{/link-to}}
+        <div class="col-sm-12 col-md-6  col-lg-3 more">
+          <div class="card">
+            <div class="card-header">Thought</div>
+            <div class="card-body text-secondary">
+              {{#link-to "routes.admin.thought.insert-thought"}}<button class="btn-mod btn btn-primary">Add New Thought</button>{{/link-to}}
+              {{#link-to "routes.admin.thought.list-thought"}}<button class="btn-mod btn btn-primary">View All Thought</button>{{/link-to}}
+            </div>
           </div>
         </div>
-        <div class="card  mb-3 ">
-          <div class="card-header">Job</div>
-          <div class="card-body text-secondary">
-            {{#link-to "routes.admin.job.insert-job"}}<button class="btn btn-primary">Add New Job</button>{{/link-to}}
-            {{#link-to "routes.admin.job.list-job"}}<button class="btn btn-primary">View All Job</button>{{/link-to}}
+        <div class="col-sm-12 col-md-6  col-lg-3 more">
+          <div class="card">
+            <div class="card-header">Job</div>
+            <div class="card-body text-secondary">
+              {{#link-to "routes.admin.job.insert-job"}}<button class="btn-mod btn btn-primary">Add New Job</button>{{/link-to}}
+              {{#link-to "routes.admin.job.list-job"}}<button class="btn-mod btn btn-primary">View All Job</button>{{/link-to}}
+            </div>
           </div>
         </div>
-        <div class="card  mb-3 ">
-          <div class="card-header">Employee Counter</div>
-          <div class="card-body text-secondary">
-            {{#link-to "routes.admin.thought.insert-thought"}}<button class="btn btn-primary">Edit Employee Counter</button>{{/link-to}}
+        <div class="col-sm-12 col-md-6  col-lg-3 more">
+          <div class="card">
+            <div class="card-header">Employee Counter</div>
+            <div class="card-body text-secondary">
+              {{#link-to "routes.admin.counter"}}<button class="btn-mod btn btn-primary">Edit <span>Employee Counter</span></button>{{/link-to}}
+            </div>
           </div>
         </div>
       </div>
