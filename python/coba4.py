@@ -5,274 +5,27 @@ import os, shutil
 import base64
 import re
 from bs4 import BeautifulSoup
-# from datetime import datetime
+import functionToCall
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins":"*"}})
-
-def Diff(li1, li2):
-  return(list(set(li1) - set(li2)))
-
-# def remove(string):
-#   return string.replace(" ", "")
 
 # POST article Data
 @app.route('/api/article/post', methods=['POST'])
 def postJsonArticleHandler():
     content = request.get_json()
-    # print(content)
     if os.path.exists('../public/assets/content/articles/data.json'):
-      with open('../public/assets/content/articles/data.json', 'r+') as file:
-        temp = {}
-        temp2 = {}
-        data = json.load(file)
-        loadData = data['articles']
-        try:
-          for loop in loadData:
-            count = loop['id']
-          content['article']['id'] = count+1
-        except:
-          content['article']['id'] = 1
-        for key, value in content.items():
-          for key2, value2 in value.items():
-            if key2 == 'thumbImage':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                pass
-              else:
-                if not os.path.isdir("../public/assets/content/articles/article-image/" + str(content['article']['id'])):
-                  os.mkdir("../public/assets/content/articles/article-image/" + str(content['article']['id']))
-                else:
-                  pass
-                tempIMG = []
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-                img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-                decodeData = base64.b64decode(img[0])
-                source = "../public/assets/content/articles/article-image/" + str(
-                  content['article']['id']) + '/thumbnail-image.jpg'
-                splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-                image_result = open(source, 'wb')
-                image_result.write(decodeData)
-                image_result.close()
-                temp[key2] = splitSource[0]
-                temp2[key2] = splitSource[0]
-
-            elif key2 == 'article':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                temp2[key2] = value2
-              else:
-                if not os.path.isdir("../public/assets/content/articles/article-image/" + str(content['article']['id'])):
-                  os.mkdir("../public/assets/content/articles/article-image/" + str(content['article']['id']))
-                else:
-                  pass
-                tempIMG = []
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-
-                count = 1
-                tempSRC = []
-                for toLocal in tempIMG:
-                  img = re.findall(r'base64,(.*)', toLocal, re.I | re.M)
-                  decodeData = base64.b64decode(img[0])
-                  source = "../public/assets/content/articles/article-image/"+str(content['article']['id'])+'/image' + str(count) + '.jpg'
-                  splitSource = re.findall(r'public/(.*)', source, re.I | re.M)
-                  tempSRC.append(splitSource)
-                  image_result = open(source , 'wb')
-                  image_result.write(decodeData)
-                  image_result.close()
-                  count += 1
-                for iterHTML, iterSRC in zip(html_img_tags, tempSRC):
-                  iterHTML['src'] = iterSRC
-                temp2[key2] = str(soup)
-            elif key2 == 'tag':
-              tempListTag = []
-              with open('../public/assets/content/articles/tag.json', 'r+') as openTag:
-                data = json.load(openTag)
-                unpackTags = data['tags']
-                splitText = value2.split(',')
-                # unpackLoadData = [value['name'] for value in unpackTags]
-                # compareList = Diff(splitText, unpackLoadData)
-                # combine = unpackLoadData + compareList
-
-                for value in splitText:
-                  tempTag = {}
-                  tempTag['name'] = value
-                  tempTag['id'] = content['article']['id']
-                  unpackTags.append(tempTag)
-
-                # combine = unpackTags +
-                tempDictTag= dict(tags=unpackTags)
-                openTag.seek(0)
-                openTag.truncate()
-                openTag.write(json.dumps(tempDictTag))
-                openTag.close()
-              temp[key2] = value2
-              temp2[key2] = value2
-            # elif key2 == 'date':
-            #   with open('../public/assets/content/articles/date.json', 'r+') as openDate:
-            #     dateContentToDict = {}
-            #     dataDate = json.load(openDate)
-            #     unpackDate = dataDate['dates']
-            #
-            #     contentFormatted = datetime.strptime(value2, '%Y-%m-%d').date()
-            #     date = contentFormatted.replace(day=1)
-            #     dateToString = date.strftime('%Y-%m-%d')
-            #
-            #     for dateData in unpackDate:
-            #       readValue = dateData['name']
-            #       if readValue == dateToString:
-            #         pass
-            #       else:
-            #         dateContentToDict['name'] = dateToString
-            #
-            #     if(dateContentToDict):
-            #       unpackDate.append(dateContentToDict)
-            #
-            #     tempDict = dict(dates=unpackDate)
-            #     openDate.seek(0)
-            #     openDate.truncate()
-            #     openDate.write(json.dumps(tempDict))
-            #     openDate.close()
-            #   temp[key2] = value2
-            #   temp2[key2] = value2
-            else:
-              temp[key2] = value2
-              temp2[key2] = value2
-
-        loadData.append(temp)
-        tempDict = dict(articles=loadData)
-        tempDict2 = dict(article=temp2)
-        file.seek(0)
-        file.truncate()
-        file.write(json.dumps(tempDict))
-        f = open('../public/assets/content/articles/article/' + str(content['article']['id']) + '.json', 'w')
-        f.write(json.dumps(tempDict2))
-        f.close()
+      argument = 'articleExist'
+      functionToCall.forArticle(content,argument)
     else:
-      if not os.path.isdir('../public/assets/content/articles'):
-        os.mkdir('../public/assets/content/articles')
-      with open('../public/assets/content/articles/data.json', 'w') as createArticles:
-        temp = {}
-        temp2 = {}
-        content['article']['id'] = 1
-        for key, value in content.items():
-          for key2, value2 in value.items():
-            if key2 == 'thumbImage':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                pass
-              else:
-                if not os.path.isdir("../public/assets/content/articles/article-image"):
-                  path = "../public/assets/content/articles/article-image"
-                  os.mkdir(path)
-                  os.mkdir(path+'/'+str(content['article']['id']))
-                else:
-                  pass
-                tempIMG = []
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-                img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-                decodeData = base64.b64decode(img[0])
-                source = "../public/assets/content/articles/article-image/" + str(
-                  content['article']['id']) + '/thumbnail-image.jpg'
-                splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-                image_result = open(source, 'wb')
-                image_result.write(decodeData)
-                image_result.close()
-                temp[key2] = splitSource[0]
-                temp2[key2] = splitSource[0]
-            elif key2 == 'article':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                temp2[key2] = value2
-              else:
-                if not os.path.isdir("../public/assets/content/articles/article-image"):
-                  path = "../public/assets/content/articles/article-image"
-                  os.mkdir(path)
-                  os.mkdir(path+'/'+str(content['article']['id']))
-                else:
-                  pass
-                tempIMG = []
+      argument = 'articleNotExist'
+      functionToCall.forArticle(content, argument)
 
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-
-                count = 1
-                tempSRC = []
-                for toLocal in tempIMG:
-                  img = re.findall(r'base64,(.*)', toLocal, re.I | re.M)
-                  decodeData = base64.b64decode(img[0])
-                  source = "../public/assets/content/articles/article-image/" + str(
-                    content['article']['id']) + '/image' + str(count) + '.jpg'
-                  splitSource = re.findall(r'public/(.*)', source, re.I | re.M)
-                  tempSRC.append(splitSource)
-                  image_result = open(source, 'wb')
-                  image_result.write(decodeData)
-                  image_result.close()
-                  count += 1
-                for iterHTML, iterSRC in zip(html_img_tags, tempSRC):
-                  iterHTML['src'] = iterSRC
-                temp2[key2] = str(soup)
-            elif key2 == 'tag':
-              tagContentToList = []
-              tagSplit = value2.split(',')
-              for data in tagSplit:
-                tempTag = {}
-                tempTag["name"] = data
-                tempTag['id'] = content['article']['id']
-                tagContentToList.append(tempTag)
-
-              tagDict = dict(tags=tagContentToList)
-              tagToJson = open('../public/assets/content/articles/tag.json', 'w')
-              tagToJson.write(json.dumps(tagDict))
-              tagToJson.close()
-              temp[key2] = value2
-              temp2[key2] = value2
-            # elif key2 == 'date':
-            #   dateContentToList = []
-            #   dateContentToDict = {}
-            #   contentDateFormat = datetime.strptime(value2, '%Y-%m-%d').date()
-            #   date = contentDateFormat.replace(day=1)
-            #   dateToStr = date.strftime('%Y-%m-%d')
-            #   dateContentToDict['name'] = dateToStr
-            #   dateContentToList.append(dateContentToDict)
-            #   dateDict = dict(dates=dateContentToList)
-            #   dateToJson = open('../public/assets/content/articles/date.json', 'w')
-            #   dateToJson.write(json.dumps(dateDict))
-            #   dateToJson.close()
-            #   temp[key2] = value2
-            #   temp2[key2] = value2
-            else:
-              temp[key2] = value2
-              temp2[key2] = value2
-
-        temp = [temp]
-        tempDict = dict(articles=temp)
-        tempDict2 = dict(article=temp2)
-
-        createArticles.write(json.dumps(tempDict))
-        os.mkdir('../public/assets/content/articles/article')
-        f = open('../public/assets/content/articles/article/'+str(content['article']['id'])+'.json', 'w')
-        f.write(json.dumps(tempDict2))
-        f.close()
-
-    tempID = {}
-    tempResponse = {}
-    for key, value in content.items():
-      for key2, value2 in value.items():
-        if key2 == 'id':
-          tempID[key2] = value2
-
-    tempResponse['articles'] = tempID
+    tempID = dict(id=1)
+    tempResponse = dict(articles=tempID)
     js = json.dumps(tempResponse)
     resp = Response(js, status=201, mimetype='application/json')
-    resp.headers['Link'] = 'http://localhost:81'
+    # resp.headers['Link'] = 'http://localhost:81'
     return resp
 
 # GET Article By ID
@@ -321,6 +74,7 @@ def updateArticle(article_id):
   pathIMG = '../public/assets/content/articles/article-image/' + str(article_id) + '/'
   temp = {}
   tempResponse = {}
+  id = article_id
   with open(path+'data.json', 'r+') as read_file:
     with open(path+'article/'+str(article_id)+'.json', 'r+') as read_inner_file:
       data = json.load(read_file)
@@ -1144,6 +898,8 @@ def updateJob(job_id):
         elif loopNewData == 'specialization':
           value = value.lower()
           selectedJob[loopNewData] = value
+        elif loopNewData == 'name':
+          selectedJob[loopNewData] = value
         else:
           # temp[loopNewData] = value
           selectedJob[loopNewData] = value
@@ -1151,6 +907,8 @@ def updateJob(job_id):
       resp = Response(json.dumps(tempResponse), status=201, mimetype='application/json')
     except:
       resp = jsonify("ID Not Found")
+
+    # print(temp2)
     # temp = dict(job=temp)
     # temp['job']['id'] = job_id
     # read_inner_file.seek(0)

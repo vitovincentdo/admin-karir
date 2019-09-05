@@ -2,76 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d946ade6-7587-4a27-a619-ef96783603e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.ember-cli" beforeDir="false" afterPath="$PROJECT_DIR$/../.ember-cli" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/models/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/models/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/models/thought.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/models/thought.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/article/edit-article/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/article/edit-article/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/index/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/index/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/job/list-job/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/job/list-job/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/edit-thought/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/edit-thought/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/insert-thought/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/routes/admin/thought/list-thought/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/thought/list-thought/template.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../app/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/image1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/3/image1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/3/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/3/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/image4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/4/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/5/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/5/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/6/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/7/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/7/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/8/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/8/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/9/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/9/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/6.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/9.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/counter/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/counter/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/jobs/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job/6.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/1/thumbnail-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/2/thumbnail-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/3/thumbnail-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/4/thumbnail-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/5/thumbnail-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/jobs-image/6/thumbnail-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thought/6.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/1/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/1/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/2/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/2/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/3/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/3/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/4/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/5/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/6/thumbnail-image.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coba4.py" beforeDir="false" afterPath="$PROJECT_DIR$/coba4.py" afterDir="false" />
     </list>
@@ -82,20 +17,96 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coba4.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="478" column="32" lean-forward="true" selection-start-line="478" selection-start-column="32" selection-end-line="478" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/coba4.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="242">
+                  <caret line="901" column="42" selection-start-line="901" selection-start-column="42" selection-end-line="901" selection-end-column="42" />
+                  <folding>
+                    <element signature="e#0#51#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/functionToCall.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#31#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Data_Handling.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <splitter split-orientation="vertical" split-proportion="0.11664296">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/coba4.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="102">
+                      <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/ForEachLoop.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="2805">
+                      <caret line="170" column="37" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
+                      <folding>
+                        <element signature="e#0#29#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/forArticle.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="25">
+                      <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/switcher.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="36">
+                      <caret line="20" selection-start-line="20" selection-end-line="20" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -106,8 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selecte</find>
-      <find>soup2</find>
       <find>put job</find>
       <find>updateJob</find>
       <find>article_id</find>
@@ -126,14 +135,22 @@
       <find>unloadUpdate</find>
       <find>temp2</find>
       <find>loadInner</find>
-      <find>print</find>
-      <find>PUT A</find>
       <find>iter</find>
       <find>POST J</find>
       <find>POST Th</find>
       <find>PUT JOB</find>
       <find>POST JO</find>
+      <find>PUT A</find>
+      <find>open</find>
+      <find>Diff</find>
+      <find>DIff</find>
+      <find>_content</find>
+      <find>___content</find>
+      <find>print</find>
     </findStrings>
+    <replaceStrings>
+      <replace>__content</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -142,15 +159,22 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/testAja.py" />
+        <option value="$PROJECT_DIR$/classes.py" />
+        <option value="$PROJECT_DIR$/function.py" />
+        <option value="$PROJECT_DIR$/forArticle.py" />
+        <option value="$PROJECT_DIR$/functionToCall.py" />
+        <option value="$PROJECT_DIR$/Data_Handling.py" />
+        <option value="$PROJECT_DIR$/ForEachLoop.py" />
+        <option value="$PROJECT_DIR$/switcher.py" />
         <option value="$PROJECT_DIR$/coba4.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1611" />
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -158,6 +182,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,7 +194,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,14 +299,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.02232143" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08113804" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31096563" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2383532" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -295,6 +320,25 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08113804" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2383532" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/testAja.py">
@@ -307,10 +351,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="11" lean-forward="true" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+          <folding>
+            <element signature="e#22#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data_Handling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functionToCall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ForEachLoop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2805">
+          <caret line="170" column="37" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forArticle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/switcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/coba4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="478" column="32" lean-forward="true" selection-start-line="478" selection-start-column="32" selection-end-line="478" selection-end-column="32" />
+        <state relative-caret-position="242">
+          <caret line="901" column="42" selection-start-line="901" selection-start-column="42" selection-end-line="901" selection-end-column="42" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
