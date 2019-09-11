@@ -7,6 +7,7 @@ import re
 from bs4 import BeautifulSoup
 import functionToCall
 
+
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins":"*"}})
 
@@ -15,47 +16,21 @@ CORS(app, resources={r"/api/*": {"origins":"*"}})
 def postJsonArticleHandler():
     content = request.get_json()
     if os.path.exists('../public/assets/content/articles/data.json'):
-      argument = 'articleExist'
-      functionToCall.forArticle(content,argument)
+      functionToCall.forArticle(content, 'articleExist')
     else:
-      argument = 'articleNotExist'
-      functionToCall.forArticle(content, argument)
+      functionToCall.forArticle(content, 'articleNotExist')
 
-    tempID = dict(id=1)
+    tempID = dict(id=functionToCall.toReturnID())
     tempResponse = dict(articles=tempID)
     js = json.dumps(tempResponse)
     resp = Response(js, status=201, mimetype='application/json')
-    # resp.headers['Link'] = 'http://localhost:81'
     return resp
 
 # GET Article By ID
 @app.route('/api/article/get/<int:article_id>', methods=['GET'])
 def articleByID(article_id):
-  with open('../public/assets/content/articles/data.json', 'r') as read_file:
-    data = json.load(read_file)
-    dictData = data['articles']
-    try:
-      for loop in dictData:
-        if article_id == loop['id']:
-          selectedUser = loop
-      count = selectedUser['id']
-      f = open('../public/assets/content/articles/article/'+str(count)+'.json', 'r')
-      data2 = json.load(f)
-      outDict = data2['article']
-      for secondLoop, value in outDict.items():
-        if secondLoop == 'thumbImage':
-          outDict[secondLoop] = '<p><img src="'+value+'"/></p>'
-        elif secondLoop == 'article':
-          soup = BeautifulSoup(value, "html.parser")
-          for img in soup.findAll('img'):
-            img['src'] = '/'+img['src']
-          outDict[secondLoop] = str(soup)
-      selectedUser.update(outDict)
-      f.close()
-      forResp = dict(articles=selectedUser)
-      resp = jsonify(forResp)
-    except:
-      resp = jsonify("ID Not Found")
+  data = functionToCall.getDataById(article_id, 'article')
+  resp = jsonify(data)
   return resp
 
 #GET All article Data
@@ -305,163 +280,22 @@ def deleteArticle(article_id):
 def postJsonThoughtHandler():
     content = request.get_json()
     if os.path.exists('../public/assets/content/thoughts/data.json'):
-      with open('../public/assets/content/thoughts/data.json', 'r+') as file:
-        temp = {}
-        # temp2 = {}
-        data = json.load(file)
-        loadData = data['thoughts']
-        try:
-          for loop in loadData:
-            count = loop['id']
-          content['thought']['id'] = count+1
-        except:
-          content['thought']['id'] = 1
-        for key, value in content.items():
-          for key2, value2 in value.items():
-            # if key2 == 'name':
-            #   temp[key2] = value2
-            #   # temp2[key2] = value2
-            if key2 == 'thought':
-              soup = BeautifulSoup(value2, "html.parser")
-              onlyText = soup.get_text()
-              onlyText = onlyText.replace('\n',' ')
-              temp[key2] = onlyText
-              # temp2[key2] = onlyText
-            elif key2 == 'thumbThought':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                pass
-              else:
-                if not os.path.isdir("../public/assets/content/thoughts/thoughts-image/" + str(content['thought']['id'])):
-                  os.mkdir("../public/assets/content/thoughts/thoughts-image/" + str(content['thought']['id']))
-                else:
-                  pass
-                tempIMG = []
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-                img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-                decodeData = base64.b64decode(img[0])
-                source = "../public/assets/content/thoughts/thoughts-image/" + str(
-                  content['thought']['id']) + '/thumbnail-image.jpg'
-                splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-                image_result = open(source, 'wb')
-                image_result.write(decodeData)
-                image_result.close()
-                temp[key2] = splitSource[0]
-                # temp2[key2] = splitSource[0]
-            else:
-              temp[key2] = value2
-              # temp2[key2] = value2
-
-        loadData.append(temp)
-        tempDict = dict(thoughts=loadData)
-        # tempDict2 = dict(thought=temp2)
-        file.seek(0)
-        file.truncate()
-        file.write(json.dumps(tempDict))
-        # f = open('../public/assets/content/thoughts/thought/' + str(content['thought']['id']) + '.json', 'w')
-        # f.write(json.dumps(tempDict2))
-        # f.close()
+      functionToCall.forThought(content, 'thoughtExist')
     else:
-      if not os.path.exists('../public/assets/content/thoughts'):
-        os.mkdir('../public/assets/content/thoughts')
-      with open('../public/assets/content/thoughts/data.json', 'w') as createThoughts:
-        temp = {}
-        # temp2 = {}
-        content['thought']['id'] = 1
-        for key, value in content.items():
-          for key2, value2 in value.items():
-            # if key2 == 'name':
-            #   temp[key2] = value2
-              # temp2[key2] = value2
-            if key2 == 'thought':
-              soup = BeautifulSoup(value2, "html.parser")
-              onlyText = soup.get_text()
-              onlyText = onlyText.replace('\n', ' ')
-              temp[key2] = onlyText
-              # temp2[key2] = onlyText
-            elif key2 == 'thumbThought':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                pass
-              else:
-                if not os.path.isdir("../public/assets/content/thoughts/thoughts-image"):
-                  os.mkdir("../public/assets/content/thoughts/thoughts-image")
-                if not os.path.isdir("../public/assets/content/thoughts/thoughts-image/" + str(content['thought']['id'])):
-                  os.mkdir("../public/assets/content/thoughts/thoughts-image/" + str(content['thought']['id']))
-                else:
-                  pass
-                tempIMG = []
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-                img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-                decodeData = base64.b64decode(img[0])
-                source = "../public/assets/content/thoughts/thoughts-image/" + str(
-                  content['thought']['id']) + '/thumbnail-image.jpg'
-                splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-                image_result = open(source, 'wb')
-                image_result.write(decodeData)
-                image_result.close()
-                temp[key2] = splitSource[0]
-                # temp2[key2] = splitSource[0]
-            else:
-              temp[key2] = value2
-              # temp2[key2] = value2
+      functionToCall.forThought(content, 'thoughtNotExist')
 
-        temp = [temp]
-        tempDict = dict(thoughts=temp)
-        # tempDict2 = dict(thought=temp2)
-
-        createThoughts.write(json.dumps(tempDict))
-        # f = open('../public/assets/content/thoughts/thought/'+str(content['thought']['id'])+'.json', 'w')
-        # f.write(json.dumps(tempDict2))
-        # f.close()
-
-    tempID = {}
-    tempResponse = {}
-    for key, value in content.items():
-      for key2, value2 in value.items():
-        if key2 == 'id':
-          tempID[key2] = value2
-
-    tempResponse['thoughts'] = tempID
+    tempID = dict(id=functionToCall.toReturnID())
+    tempResponse = dict(thoughts=tempID)
     js = json.dumps(tempResponse)
     resp = Response(js, status=201, mimetype='application/json')
-    resp.headers['Link'] = 'http://localhost:81'
+    # resp.headers['Link'] = 'http://localhost:81'
     return resp
 
 # GET Thought By ID
 @app.route('/api/thought/get/<int:thought_id>', methods=['GET'])
 def thoughtByID(thought_id):
-  with open('../public/assets/content/thoughts/data.json', 'r') as read_file:
-    data = json.load(read_file)
-    dictData = data['thoughts']
-    filterData = [item for item in dictData if item['id'] == thought_id]
-    for item in filterData:
-      for key, value in item.items():
-        if key == 'thumbThought':
-          item[key] = '<p><img src="'+value+'"/></p>'
-    forResp = dict(thoughts=filterData)
-    resp = jsonify(forResp)
-    # try:
-    #   for loop in dictData:
-    #     if thought_id == loop['id']:
-    #       selectedUser = loop
-    #   count = selectedUser['id']
-    #   f = open('../public/assets/content/thoughts/thought/'+str(count)+'.json', 'r')
-    #   data2 = json.load(f)
-    #   outDict = data2['thought']
-    #   for secondLoop, value in outDict.items():
-    #     if secondLoop == 'thumbThought':
-    #       outDict[secondLoop] = '<p><img src="'+value+'"/></p>'
-    #   selectedUser.update(outDict)
-    #   f.close()
-    #   forResp = dict(thoughts=selectedUser)
-    #   resp = jsonify(forResp)
-    # except:
-    #   resp = jsonify("ID Not Found")
+  data = functionToCall.getDataById(thought_id, 'thought')
+  resp = jsonify(data)
   return resp
 
 #GET All Thought Data
@@ -592,177 +426,24 @@ def deleteThought(thought_id):
 @app.route('/api/job/post', methods=['POST'])
 def postJsonJobHandler():
     content = request.get_json()
+
     if os.path.exists('../public/assets/content/jobs/data.json'):
-      with open('../public/assets/content/jobs/data.json', 'r+') as file:
-        temp = {}
-        temp2 = {}
-        data = json.load(file)
-        loadData = data['jobs']
-        try:
-          for loop in loadData:
-            count = loop['id']
-          content['job']['id'] = count+1
-        except:
-          content['job']['id'] = 1
-        for key, value in content.items():
-          for key2, value2 in value.items():
-            if key2 == 'name':
-              temp[key2] = value2
-              temp2[key2] = value2
-            elif key2 == 'description':
-              temp2[key2] = value2
-            elif key2 == 'qualification':
-              temp2[key2] = value2
-            elif key2 == 'thumbJob':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                pass
-              else:
-                if not os.path.isdir("../public/assets/content/jobs/jobs-image/" + str(content['job']['id'])):
-                  os.mkdir("../public/assets/content/jobs/jobs-image/" + str(content['job']['id']))
-                else:
-                  pass
-                tempIMG = []
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-                img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-                decodeData = base64.b64decode(img[0])
-                source = "../public/assets/content/jobs/jobs-image/" + str(
-                  content['job']['id']) + '/thumbnail-image.png'
-                splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-                image_result = open(source, 'wb')
-                image_result.write(decodeData)
-                image_result.close()
-                temp[key2] = splitSource[0]
-                temp2[key2] = splitSource[0]
-            # elif key2 == 'location':
-            #   splitLocation = value2.split(", ")
-            #   temp[key2] = splitLocation
-            elif key2 == 'specialization':
-              value2 = value.lower()
-              temp[key2] = value2
-            else:
-              temp[key2] = value2
-              temp2[key2] = value2
-
-        loadData.append(temp)
-        tempDict = dict(jobs=loadData)
-        tempDict2 = dict(job=temp2)
-        file.seek(0)
-        file.truncate()
-        file.write(json.dumps(tempDict))
-        # f = open('../public/assets/content/jobs/job/' + str(content['job']['id']) + '.json', 'w')
-        # f.write(json.dumps(tempDict2))
-        # f.close()
+      functionToCall.forJob(content,'jobExist')
     else:
-      if not os.path.exists('../public/assets/content/jobs'):
-        os.mkdir('../public/assets/content/jobs')
-      with open('../public/assets/content/jobs/data.json', 'w') as createJob:
-        temp = {}
-        temp2 = {}
-        content['job']['id'] = 1
-        for key, value in content.items():
-          for key2, value2 in value.items():
-            if key2 == 'name':
-              temp[key2] = value2
-              temp2[key2] = value2
-            elif key2 == 'description':
-              temp2[key2] = value2
-            elif key2 == 'qualification':
-              temp2[key2] = value2
-            elif key2 == 'thumbJob':
-              soup = BeautifulSoup(value2, "html.parser")
-              html_img_tags = soup.findAll("img")
-              if not html_img_tags:
-                pass
-              else:
-                if not os.path.isdir("../public/assets/content/jobs/jobs-image"):
-                  os.mkdir("../public/assets/content/jobs/jobs-image")
-                if not os.path.isdir("../public/assets/content/jobs/jobs-image/" + str(content['job']['id'])):
-                  os.mkdir("../public/assets/content/jobs/jobs-image/" + str(content['job']['id']))
-                else:
-                  pass
-                tempIMG = []
-                for tag in html_img_tags:
-                  tempIMG.append(tag['src'])
-                img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-                decodeData = base64.b64decode(img[0])
-                source = "../public/assets/content/jobs/jobs-image/" + str(
-                  content['job']['id']) + '/thumbnail-image.png'
-                splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-                image_result = open(source, 'wb')
-                image_result.write(decodeData)
-                image_result.close()
-                temp[key2] = splitSource[0]
-                temp2[key2] = splitSource[0]
-            # elif key2 == 'location':
-            #   splitLocation = value2.split(", ")
-            #   temp[key2] = splitLocation
-            elif key2 == 'specialization':
-              value2 = value.lower()
-              temp[key2] = value2
-            else:
-              temp[key2] = value2
-              temp2[key2] = value2
+      functionToCall.forJob(content, 'jobNotExist')
 
-        temp = [temp]
-        tempDict = dict(jobs=temp)
-        tempDict2 = dict(job=temp2)
-
-        createJob.write(json.dumps(tempDict))
-
-        # if not os.path.isdir('../public/assets/content/jobs/job'):
-        #   os.mkdir('../public/assets/content/jobs/job')
-        # f = open('../public/assets/content/jobs/job/'+str(content['job']['id'])+'.json', 'w')
-        # f.write(json.dumps(tempDict2))
-        # f.close()
-
-    tempID = {}
-    tempResponse = {}
-    for key, value in content.items():
-      for key2, value2 in value.items():
-        if key2 == 'id':
-          tempID[key2] = value2
-
-    tempResponse['jobs'] = tempID
+    tempID = dict(id=functionToCall.toReturnID())
+    tempResponse = dict(jobs=tempID)
     js = json.dumps(tempResponse)
     resp = Response(js, status=201, mimetype='application/json')
-    resp.headers['Link'] = 'http://localhost:81'
+
     return resp
 
 # GET Job By ID
 @app.route('/api/job/get/<int:job_id>', methods=['GET'])
 def jobByID(job_id):
-  with open('../public/assets/content/jobs/data.json', 'r') as read_file:
-    data = json.load(read_file)
-    dictData = data['jobs']
-    filterData = [item for item in dictData if item['id'] == job_id]
-    # print(filterData)
-    for item in filterData:
-      for key, value in item.items():
-        if key == 'thumbJob':
-          if value != None:
-            item[key] = '<p><img src="'+value+'"/></p>'
-    forResp = dict(jobs=filterData)
-    resp = jsonify(forResp)
-    # try:
-    #   for loop in dictData:
-    #     if job_id == loop['id']:
-    #       selectedUser = loop
-    #   count = selectedUser['id']
-    #   f = open('../public/assets/content/jobs/job/'+str(count)+'.json', 'r')
-    #   data2 = json.load(f)
-    #   outDict = data2['job']
-    #   for secondLoop, value in outDict.items():
-    #     if secondLoop == 'thumbJob':
-    #       outDict[secondLoop] = '<p><img src="'+value+'"/></p>'
-    #   selectedUser.update(outDict)
-    #   f.close()
-    #   forResp = dict(jobs=selectedUser)
-    #   resp = jsonify(forResp)
-    # except:
-    #   resp = jsonify("ID Not Found")
+  data = functionToCall.getDataById(job_id, 'job')
+  resp = jsonify(data)
   return resp
 
 #GET All Job Data

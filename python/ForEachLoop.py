@@ -12,6 +12,9 @@ class looping():
     self.__temp2 = {}
     self.__id = id
     self.__content = content
+    self.pathArticleImage = '../public/assets/content/articles/article-image'
+    self.pathThoughtImage = '../public/assets/content/thoughts/thoughts-image'
+    self.pathJobImage = '../public/assets/content/jobs/job-image'
 
   def getTemp(self):
     return self.__temp
@@ -22,12 +25,19 @@ class looping():
   def Diff(self, li1, li2):
     return (list(set(li1) - set(li2)))
 
-  def ThumbImgToLocal(self, data):
+  def ThumbImgToLocal(self, data, argument):
     ImgToFile = DataHandling()
 
     tempIMG = []
-    pathArticleImage = '../public/assets/content/articles/article-image'
-    pathArticleImageId = pathArticleImage + '/' + str(self.__id)
+
+    if argument == 'article':
+      setPathToImage = self.pathArticleImage
+    elif argument == 'thought':
+      setPathToImage = self.pathThoughtImage
+    elif argument == 'job':
+      setPathToImage = self.pathJobImage
+
+    pathArticleImageId = setPathToImage + '/' + str(self.__id)
     pathArticleImageIdThumb = pathArticleImageId + '/thumbnail-image.jpg'
     ImgToFile.setPath(pathArticleImageIdThumb)
 
@@ -36,8 +46,8 @@ class looping():
     if not html_img_tags:
       value = None
     else:
-      if not os.path.isdir(pathArticleImage):
-        os.mkdir(pathArticleImage)
+      if not os.path.isdir(setPathToImage):
+        os.mkdir(setPathToImage)
       if not os.path.isdir(pathArticleImageId):
         os.mkdir(pathArticleImageId)
       for tag in html_img_tags:
@@ -48,6 +58,7 @@ class looping():
       ImgToFile.SaveIMGToLocal()
       splitSource = re.findall(r'public(.*)', pathArticleImageIdThumb, re.I | re.M)
       value = splitSource[0]
+
     return value
 
   def ArticleToLocal(self, data):
@@ -143,29 +154,75 @@ class looping():
       value = None
     return value
 
-  def forThumbImage(self, key, value):
-    self.__temp[key] = self.ThumbImgToLocal(value)
-    self.__temp2[key] = self.ThumbImgToLocal(value)
+  def thoughtToLocal(self, data):
+      soup = BeautifulSoup(data, 'html.parser')
+      onlyText = soup.get_text()
+      onlyText = onlyText.replace('\n', ' ')
+      return onlyText
 
-  def forArticle(self, key, value):
-    self.__temp2[key] = self.ArticleToLocal(value)
+  def forThumbImage(self, key, value, argument):
+    if argument == 'article':
+      if value == None:
+        returnedData = value
+      else:
+        returnedData = self.ThumbImgToLocal(value, argument)
+      self.__temp[key] = returnedData
+      self.__temp2[key] = returnedData
 
-  def forTag(self, key, value):
-    self.__temp[key] = self.TagToLocal(value)
-    self.__temp2[key] = self.TagToLocal(value)
+    elif argument == 'thought':
+      if value == None:
+        returnedData = value
+      else:
+        returnedData = self.ThumbImgToLocal(value, argument)
+      self.__temp[key] = returnedData
 
-  def forOther(self, key, value):
-    self.__temp[key] = value
-    self.__temp2[key] = value
+    elif argument == 'job':
+      if value == None:
+        returnedData = value
+      else:
+        returnedData = self.ThumbImgToLocal(value, argument)
+      self.__temp[key] = returnedData
 
-  def loopData(self):
+  def forOther(self, key, value, argument):
+    if argument == 'article':
+      self.__temp[key] = value
+      self.__temp2[key] = value
+    elif argument == 'thought' or argument == 'job':
+      if value == '':
+        self.__temp[key] = None
+      else:
+        self.__temp[key] = value
+
+  def loopDataArticle(self, argument):
     for key, value in self.__content.items():
       for key2, value2 in value.items():
         if key2 == 'thumbImage':
-          self.forThumbImage(key2, value2)
+          self.forThumbImage(key2, value2, argument)
         elif key2 == 'article':
-          self.forArticle(key2, value2)
+          self.__temp2[key2] = self.ArticleToLocal(value2)
         elif key2 == 'tag':
-          self.forTag(key2, value2)
+          returnedData = self.TagToLocal(value2)
+          self.__temp[key2] = returnedData
+          self.__temp2[key2] = returnedData
         else:
-          self.forOther(key2, value2)
+          self.forOther(key2, value2, argument)
+
+  def loopDataThought(self, argument):
+    for key, value in self.__content.items():
+      for key2, value2 in value.items():
+        if key2 == 'thought':
+          self.__temp[key2] = self.thoughtToLocal(value2)
+        elif key2 == 'thumbThought':
+          self.forThumbImage(key2, value2, argument)
+        else:
+          self.forOther(key2, value2, argument)
+
+  def looopDataJob(self, argument):
+    for key, value in self.__content.items():
+      for key2, value2 in value.items():
+        if key2 == 'thumbJob':
+          self.forThumbImage(key2, value2, argument)
+        elif key2 == 'featured':
+          self.__temp[key2] = value2
+        else:
+          self.forOther(key2, value2, argument)

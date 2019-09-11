@@ -1,49 +1,63 @@
 from ForEachLoop import looping
 from switcher import Switcher
-# from Data_Handling import DataHandling
+from Data_Handling import DataHandling
+from getByID import getById
 import os
 import json
 
+
+def toReturnID():
+  forSwitching = Switcher()
+  return forSwitching.getID()
+
 def forArticle(content, argument):
   forSwitching = Switcher()
+  forData = DataHandling()
 
   forSwitching.setContent(content)
-
-  if argument == 'articleExist':
-    forSwitching.properties('articleExist')
-  elif argument == 'articleNotExist':
-    forSwitching.properties('articleNotExist')
+  forSwitching.properties(argument)
 
   forLooping = looping(forSwitching.getID(), forSwitching.getContent())
-  forLooping.loopData()
+  forLooping.loopDataArticle('article')
 
   if not os.path.isdir(forSwitching.pathFolderArticle+'/article'):
     os.mkdir(forSwitching.pathFolderArticle+'/article')
   else:
     pass
 
-  file = open(forSwitching.pathArticleData, 'r+')
-  innerFile = open(forSwitching.pathFolderArticle+'/article/'+str(forSwitching.getID())+'.json', 'w')
+  forData.writeeOuter(forSwitching.pathArticleData, forLooping.getTemp(), 'article')
+  forData.writeInner(forSwitching.pathFolderArticle+'/article/'+str(forSwitching.getID())+'.json', forLooping.getTemp2())
 
-  try:
-    data = json.load(file)
-    unloadArticles = data['articles']
-    unloadArticles.append(forLooping.getTemp())
-    tempToList = unloadArticles
-    print("masuk situ")
-  except:
-    print("masuk sini")
-    tempToList = [forLooping.getTemp()]
 
-  print(tempToList)
-  tempDict = dict(articles=tempToList)
-  tempDict2 = dict(article=forLooping.getTemp2())
+def forThought(content, argument):
+  forSwitching = Switcher()
+  forData = DataHandling()
 
-  file.seek(0)
-  file.truncate()
-  file.write(json.dumps(tempDict))
+  forSwitching.setContent(content)
+  forSwitching.properties(argument)
 
-  innerFile.write(json.dumps(tempDict2))
+  forLooping = looping(forSwitching.getID(), forSwitching.getContent())
+  forLooping.loopDataThought('thought')
 
-  file.close()
-  innerFile.close()
+  forData.writeeOuter(forSwitching.pathThoughtData, forLooping.getTemp(), 'thought')
+
+def forJob(content, argument):
+  forSwitching = Switcher()
+  forData = DataHandling()
+
+  forSwitching.setContent(content)
+  forSwitching.properties(argument)
+
+  forLooping = looping(forSwitching.getID(), forSwitching.getContent())
+  forLooping.looopDataJob('job')
+
+  forData.writeeOuter(forSwitching.pathJobData, forLooping.getTemp(), 'job')
+
+def getDataById(id, argument):
+  getfromId = getById()
+
+  getfromId.setID(id)
+
+  resp = getfromId.getByIdOuter(argument)
+
+  return resp

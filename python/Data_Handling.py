@@ -19,7 +19,37 @@ class DataHandling:
     image_result.write(self.__data)
     image_result.close()
 
-  def writeToFile(self, path, data):
-    writeTF = open(path, 'w')
-    writeTF.write(json.dumps(data))
-    writeTF.close()
+  def writeeOuter(self, path, content, argument):
+    file = open(path, 'r+')
+
+    try:
+      data = json.load(file)
+      if argument == 'article':
+        unloadData = data['articles']
+      elif argument == 'thought':
+        unloadData = data['thoughts']
+      elif argument == 'job':
+        unloadData = data['jobs']
+      unloadData.append(content)
+      tempToList = unloadData
+    except:
+      tempToList = [content]
+
+    if argument == 'article':
+      tempDict = dict(articles=tempToList)
+    elif argument == 'thought':
+      tempDict = dict(thoughts=tempToList)
+    elif argument == 'job':
+      tempDict = dict(jobs=tempToList)
+
+    file.seek(0)
+    file.truncate()
+    file.write(json.dumps(tempDict))
+    file.close()
+
+  def writeInner(self, path, content):
+    innerFile = open(path, 'w')
+    tempDict = dict(article=content)
+
+    innerFile.write(json.dumps(tempDict))
+    innerFile.close()
