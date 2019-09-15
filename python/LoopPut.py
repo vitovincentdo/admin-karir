@@ -67,7 +67,7 @@ class loopingPUT(Path):
         iterHTML['src'] = iterSRC
       return str(soup)
 
-  def forThumbImage(self, data, pathIMG):
+  def forThumbImage(self, data, pathFolder, pathIMG):
     soup = BeautifulSoup(data, 'html.parser')
     html_img_tags = soup.find_all('img')
 
@@ -80,6 +80,12 @@ class loopingPUT(Path):
       img = re.findall(r'base64,(.*)', tempIMG[0], re.I|re.M)
 
       if img:
+        if not os.path.isdir(pathFolder):
+          os.mkdir(pathFolder)
+
+        if not os.path.isdir(pathIMG):
+          os.mkdir(pathIMG)
+
         for item in os.listdir(pathIMG):
           if 'thumbnail-image' in item:
             os.remove(pathIMG + 'thumbnail-image.jpg')
@@ -132,3 +138,9 @@ class loopingPUT(Path):
       openTag.close()
 
     return data
+
+  def forThought(self, data):
+    soup = BeautifulSoup(data, "html.parser")
+    onlyText = soup.get_text()
+    onlyText = onlyText.replace('\n', ' ')
+    return onlyText

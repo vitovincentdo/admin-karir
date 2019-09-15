@@ -327,93 +327,102 @@ def allThoughtList():
 @app.route('/api/thought/update/<int:thought_id>', methods=['PUT'])
 def updateThought(thought_id):
   updateContent = request.get_json()
-  unloadUpdate = updateContent['thought']
-  path = '../public/assets/content/thoughts/'
-  pathIMG = '../public/assets/content/thoughts/thoughts-image/' + str(thought_id) + '/'
-  temp = {}
-  tempResponse = {}
-  with open(path+'data.json', 'r+') as read_file:
-    # with open(path+'thought/'+str(thought_id)+'.json', 'r+') as read_inner_file:
-    data = json.load(read_file)
-    # dataPerId = json.load(read_inner_file)
-    temp2 = data.copy()
-    loadDict = temp2['thoughts']
-    # loadInner = dataPerId['thought']
-    try:
-      for loop in loadDict:
-          if thought_id == loop['id']:
-            selectedThought = loop
-      for loopNewData, value in unloadUpdate.items():
-        if loopNewData == 'thumbThought':
-          if not os.path.isdir('../public/assets/content/thoughts/thoughts-image'):
-            os.mkdir('../public/assets/content//thoughts/thoughts-image')
-          soup = BeautifulSoup(value, "html.parser")
-          html_img_tags = soup.findAll("img")
-          if not html_img_tags:
-            listFile = os.listdir(pathIMG)
-            for i in listFile:
-              if "thumbnail-image" in i:
-                os.remove(pathIMG + "thumbnail-image.jpg")
-            for item in loadDict:
-              item.pop("thumbThought")
-          else:
-            if not os.path.isdir('../public/assets/content/thoughts/thoughts-image/' + str(thought_id)):
-              os.mkdir('../public/assets/content/thoughts/thoughts-image/' + str(thought_id))
-            tempIMG = []
-            for tag in html_img_tags:
-              tempIMG.append(tag['src'])
-            img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-            if img:
-              listFile = os.listdir(pathIMG)
-              for i in listFile:
-                if "thumbnail-image" in i:
-                  os.remove(pathIMG + "thumbnail-image.jpg")
-              decodeData = base64.b64decode(img[0])
-              source = pathIMG + 'thumbnail-image.jpg'
-              splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-              image_result = open(source, 'wb')
-              image_result.write(decodeData)
-              image_result.close()
-              # temp[loopNewData] = splitSource[0]
-              selectedThought[loopNewData] = splitSource[0]
-            # else:
-              # temp[loopNewData] = loadInner[loopNewData]
-              # soup2 = BeautifulSoup(str(value), 'html.parser')
-              # image = soup2.find('img')
-              # print(image['src'])
-              # reformat = '/'+image['src']
-              # temp[loopNewData] = reformat
-        elif loopNewData == 'thought':
-          soup = BeautifulSoup(value, "html.parser")
-          onlyText = soup.get_text()
-          onlyText = onlyText.replace('\n', ' ')
-          selectedThought[loopNewData] = onlyText
-        else:
-          # temp[loopNewData] = value
-          selectedThought[loopNewData] = value
-        # elif loopNewData == 'name':
-        #   # temp[loopNewData] = value
-        #   selectedThought[loopNewData] = value
-        # elif loopNewData == 'thought':
-        #   # temp[loopNewData] = value
-        #   selectedThought[loopNewData] = value
-        # elif loopNewData == 'date':
-        #   # temp[loopNewData] = value
-        #   selectedThought[loopNewData] = value
-      tempResponse['thoughts']['id'] = thought_id
-      resp = Response(json.dumps(tempResponse), status=201, mimetype='application/json')
-    except:
-      resp = jsonify("ID Not Found")
-    # temp = dict(thought=temp)
-    # temp['thought']['id'] = thought_id
-    # read_inner_file.seek(0)
-    # read_inner_file.truncate()
-    # read_inner_file.write(json.dumps(temp))
-    # read_inner_file.close()
-    read_file.seek(0)
-    read_file.truncate()
-    read_file.write(json.dumps(temp2))
-    read_file.close()
+  executePUT = put(thought_id, updateContent)
+  executePUT.updateThought()
+
+  tempID = dict(id=executePUT.getID())
+  tempResponse = dict(articles=tempID)
+  js = json.dumps(tempResponse)
+  resp = Response(js, status=200, mimetype='application/json')
+
+  # updateContent = request.get_json()
+  # unloadUpdate = updateContent['thought']
+  # path = '../public/assets/content/thoughts/'
+  # pathIMG = '../public/assets/content/thoughts/thoughts-image/' + str(thought_id) + '/'
+  # temp = {}
+  # tempResponse = {}
+  # with open(path+'data.json', 'r+') as read_file:
+  #   # with open(path+'thought/'+str(thought_id)+'.json', 'r+') as read_inner_file:
+  #   data = json.load(read_file)
+  #   # dataPerId = json.load(read_inner_file)
+  #   temp2 = data.copy()
+  #   loadDict = temp2['thoughts']
+  #   # loadInner = dataPerId['thought']
+  #   try:
+  #     for loop in loadDict:
+  #         if thought_id == loop['id']:
+  #           selectedThought = loop
+  #     for loopNewData, value in unloadUpdate.items():
+  #       if loopNewData == 'thumbThought':
+  #         if not os.path.isdir('../public/assets/content/thoughts/thoughts-image'):
+  #           os.mkdir('../public/assets/content//thoughts/thoughts-image')
+  #         soup = BeautifulSoup(value, "html.parser")
+  #         html_img_tags = soup.findAll("img")
+  #         if not html_img_tags:
+  #           listFile = os.listdir(pathIMG)
+  #           for i in listFile:
+  #             if "thumbnail-image" in i:
+  #               os.remove(pathIMG + "thumbnail-image.jpg")
+  #           for item in loadDict:
+  #             item.pop("thumbThought")
+  #         else:
+  #           if not os.path.isdir('../public/assets/content/thoughts/thoughts-image/' + str(thought_id)):
+  #             os.mkdir('../public/assets/content/thoughts/thoughts-image/' + str(thought_id))
+  #           tempIMG = []
+  #           for tag in html_img_tags:
+  #             tempIMG.append(tag['src'])
+  #           img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
+  #           if img:
+  #             listFile = os.listdir(pathIMG)
+  #             for i in listFile:
+  #               if "thumbnail-image" in i:
+  #                 os.remove(pathIMG + "thumbnail-image.jpg")
+  #             decodeData = base64.b64decode(img[0])
+  #             source = pathIMG + 'thumbnail-image.jpg'
+  #             splitSource = re.findall(r'public(.*)', source, re.I | re.M)
+  #             image_result = open(source, 'wb')
+  #             image_result.write(decodeData)
+  #             image_result.close()
+  #             # temp[loopNewData] = splitSource[0]
+  #             selectedThought[loopNewData] = splitSource[0]
+  #           # else:
+  #             # temp[loopNewData] = loadInner[loopNewData]
+  #             # soup2 = BeautifulSoup(str(value), 'html.parser')
+  #             # image = soup2.find('img')
+  #             # print(image['src'])
+  #             # reformat = '/'+image['src']
+  #             # temp[loopNewData] = reformat
+  #       elif loopNewData == 'thought':
+  #         soup = BeautifulSoup(value, "html.parser")
+  #         onlyText = soup.get_text()
+  #         onlyText = onlyText.replace('\n', ' ')
+  #         selectedThought[loopNewData] = onlyText
+  #       else:
+  #         # temp[loopNewData] = value
+  #         selectedThought[loopNewData] = value
+  #       # elif loopNewData == 'name':
+  #       #   # temp[loopNewData] = value
+  #       #   selectedThought[loopNewData] = value
+  #       # elif loopNewData == 'thought':
+  #       #   # temp[loopNewData] = value
+  #       #   selectedThought[loopNewData] = value
+  #       # elif loopNewData == 'date':
+  #       #   # temp[loopNewData] = value
+  #       #   selectedThought[loopNewData] = value
+  #     tempResponse['thoughts']['id'] = thought_id
+  #     resp = Response(json.dumps(tempResponse), status=201, mimetype='application/json')
+  #   except:
+  #     resp = jsonify("ID Not Found")
+  #   # temp = dict(thought=temp)
+  #   # temp['thought']['id'] = thought_id
+  #   # read_inner_file.seek(0)
+  #   # read_inner_file.truncate()
+  #   # read_inner_file.write(json.dumps(temp))
+  #   # read_inner_file.close()
+  #   read_file.seek(0)
+  #   read_file.truncate()
+  #   read_file.write(json.dumps(temp2))
+  #   read_file.close()
   return resp
 
 # DELETE Thought Data
@@ -475,149 +484,158 @@ def allJobList():
 @app.route('/api/job/update/<int:job_id>', methods=['PUT'])
 def updateJob(job_id):
   updateContent = request.get_json()
-  unloadUpdate = updateContent['job']
-  path = '../public/assets/content/jobs/'
-  pathIMG = '../public/assets/content/jobs/jobs-image/' + str(job_id) + '/'
-  temp = {}
-  tempResponse = {}
-  with open(path+'data.json', 'r+') as read_file:
-    # with open(path+'job/'+str(job_id)+'.json', 'r+') as read_inner_file:
-    data = json.load(read_file)
-    # dataPerId = json.load(read_inner_file)
-    temp2 = data.copy()
-    loadDict = temp2['jobs']
-    # loadInner = dataPerId['job']
-    try:
-      for loop in loadDict:
-          if job_id == loop['id']:
-            selectedJob = loop
-      for loopNewData, value in unloadUpdate.items():
-        # if loopNewData == 'article':
-        #   soup = BeautifulSoup(value, "html.parser")
-        #   html_img_tags = soup.findAll("img")
-        #   countExist = 1
-        #   if not html_img_tags:
-        #     listFile = os.listdir(pathIMG)
-        #     for i in listFile:
-        #       if "image"+str(countExist) in i:
-        #         os.remove(pathIMG + "image" + str(countExist) + ".jpg")
-        #         countExist += 1
-        #     temp[loopNewData] = value
-        #
-        #   else:
-        #     tempIMG = []
-        #     tempSRC = []
-        #     for tag in html_img_tags:
-        #       tempIMG.append(tag['src'])
-        #
-        #     count = 1
-        #     for toLocal in tempIMG:
-        #       img = re.findall(r'base64,(.*)', toLocal, re.I | re.M)
-        #       if img:
-        #         listFile = os.listdir(pathIMG)
-        #         for i in listFile:
-        #           if "image" + str(countExist) in i:
-        #             os.remove(pathIMG + "image" + str(countExist) + ".jpg")
-        #             # print(countDelFile)
-        #             # countDelFile += 1
-        #         decodeData = base64.b64decode(img[0])
-        #         source = pathIMG + "image" + str(count) + ".jpg"
-        #         splitSource = re.findall(r'public/(.*)', source, re.I | re.M)
-        #         tempSRC.append(splitSource)
-        #         image_result = open(source, 'wb')
-        #         image_result.write(decodeData)
-        #         image_result.close()
-        #         count += 1
-        #         countExist += 1
-        #       else:
-        #         reformat = toLocal[1:]
-        #         tempSRC.append(reformat)
-        #     for iterHTML, iterSRC in zip(html_img_tags, tempSRC):
-        #       iterHTML['src'] = iterSRC
-        #     temp[loopNewData] = str(soup)
-        if loopNewData == 'thumbJob':
-          if not os.path.isdir('../public/assets/content/jobs/jobs-image'):
-            os.mkdir('../public/assets/content/jobs/jobs-image')
-          soup = BeautifulSoup(value, "html.parser")
-          html_img_tags = soup.findAll("img")
-          if not html_img_tags:
-            listFile = os.listdir(pathIMG)
-            for i in listFile:
-              if "thumbnail-image" in i:
-                os.remove(pathIMG + "thumbnail-image.png")
-            selectedJob[loopNewData] = None
-          else:
-            if not os.path.isdir('../public/assets/content/jobs/jobs-image/' + str(job_id)):
-              os.mkdir('../public/assets/content/jobs/jobs-image/' + str(job_id))
-            tempIMG = []
-            for tag in html_img_tags:
-              tempIMG.append(tag['src'])
-            img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-            if img:
-              listFile = os.listdir(pathIMG)
-              for i in listFile:
-                if "thumbnail-image" in i:
-                  os.remove(pathIMG + "thumbnail-image.png")
-              decodeData = base64.b64decode(img[0])
-              source = pathIMG + 'thumbnail-image.png'
-              splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-              image_result = open(source, 'wb')
-              image_result.write(decodeData)
-              image_result.close()
-              # temp[loopNewData] = splitSource[0]
-              selectedJob[loopNewData] = splitSource[0]
-            # else:
-            #   temp[loopNewData] = loadInner[loopNewData]
-              # soup2 = BeautifulSoup(str(value), 'html.parser')
-              # image = soup2.find('img')
-              # print(image['src'])
-              # reformat = '/'+image['src']
-              # temp[loopNewData] = reformat
-        # elif loopNewData == 'name':
-        #   temp[loopNewData] = value
-        #   selectedJob[loopNewData] = value
-        # elif loopNewData == 'specialization':
-        #   temp[loopNewData] = value
-        #   selectedJob[loopNewData] = value
-        # elif loopNewData == 'featured':
-        #   temp[loopNewData] = value
-        #   selectedJob[loopNewData] = value
-        # elif loopNewData == 'description':
-        #   temp[loopNewData] = value
-        # elif loopNewData == 'qualification':
-        #   temp[loopNewData] = value
-        # elif loopNewData == 'url':
-        #   temp[loopNewData] = value
-        # elif loopNewData == 'location':
-        #   splitLocation = value.split(", ")
-        #   # temp[loopNewData] = splitLocation
-        #   selectedJob[loopNewData] = splitLocation
-        elif loopNewData == 'description' or loopNewData == 'qualification':
-          pass
-        elif loopNewData == 'specialization':
-          value = value.lower()
-          selectedJob[loopNewData] = value
-        elif loopNewData == 'name':
-          selectedJob[loopNewData] = value
-        else:
-          # temp[loopNewData] = value
-          selectedJob[loopNewData] = value
-      tempResponse['jobs']['id'] = job_id
-      resp = Response(json.dumps(tempResponse), status=201, mimetype='application/json')
-    except:
-      resp = jsonify("ID Not Found")
+  executePUT = put(job_id, updateContent)
+  executePUT.updateJob()
 
-    # print(temp2)
-    # temp = dict(job=temp)
-    # temp['job']['id'] = job_id
-    # read_inner_file.seek(0)
-    # read_inner_file.truncate()
-    # read_inner_file.write(json.dumps(temp))
-    # read_inner_file.close()
-    read_file.seek(0)
-    read_file.truncate()
-    read_file.write(json.dumps(temp2))
-    read_file.close()
+  tempID = dict(id=executePUT.getID())
+  tempResponse = dict(articles=tempID)
+  js = json.dumps(tempResponse)
+  resp = Response(js, status=200, mimetype='application/json')
+
+  # updateContent = request.get_json()
+  # unloadUpdate = updateContent['job']
+  # path = '../public/assets/content/jobs/'
+  # pathIMG = '../public/assets/content/jobs/jobs-image/' + str(job_id) + '/'
+  # temp = {}
+  # tempResponse = {}
+  # with open(path+'data.json', 'r+') as read_file:
+  #   # with open(path+'job/'+str(job_id)+'.json', 'r+') as read_inner_file:
+  #   data = json.load(read_file)
+  #   # dataPerId = json.load(read_inner_file)
+  #   temp2 = data.copy()
+  #   loadDict = temp2['jobs']
+  #   # loadInner = dataPerId['job']
+  #   try:
+  #     for loop in loadDict:
+  #         if job_id == loop['id']:
+  #           selectedJob = loop
+  #     for loopNewData, value in unloadUpdate.items():
+  #       # if loopNewData == 'article':
+  #       #   soup = BeautifulSoup(value, "html.parser")
+  #       #   html_img_tags = soup.findAll("img")
+  #       #   countExist = 1
+  #       #   if not html_img_tags:
+  #       #     listFile = os.listdir(pathIMG)
+  #       #     for i in listFile:
+  #       #       if "image"+str(countExist) in i:
+  #       #         os.remove(pathIMG + "image" + str(countExist) + ".jpg")
+  #       #         countExist += 1
+  #       #     temp[loopNewData] = value
+  #       #
+  #       #   else:
+  #       #     tempIMG = []
+  #       #     tempSRC = []
+  #       #     for tag in html_img_tags:
+  #       #       tempIMG.append(tag['src'])
+  #       #
+  #       #     count = 1
+  #       #     for toLocal in tempIMG:
+  #       #       img = re.findall(r'base64,(.*)', toLocal, re.I | re.M)
+  #       #       if img:
+  #       #         listFile = os.listdir(pathIMG)
+  #       #         for i in listFile:
+  #       #           if "image" + str(countExist) in i:
+  #       #             os.remove(pathIMG + "image" + str(countExist) + ".jpg")
+  #       #             # print(countDelFile)
+  #       #             # countDelFile += 1
+  #       #         decodeData = base64.b64decode(img[0])
+  #       #         source = pathIMG + "image" + str(count) + ".jpg"
+  #       #         splitSource = re.findall(r'public/(.*)', source, re.I | re.M)
+  #       #         tempSRC.append(splitSource)
+  #       #         image_result = open(source, 'wb')
+  #       #         image_result.write(decodeData)
+  #       #         image_result.close()
+  #       #         count += 1
+  #       #         countExist += 1
+  #       #       else:
+  #       #         reformat = toLocal[1:]
+  #       #         tempSRC.append(reformat)
+  #       #     for iterHTML, iterSRC in zip(html_img_tags, tempSRC):
+  #       #       iterHTML['src'] = iterSRC
+  #       #     temp[loopNewData] = str(soup)
+  #       if loopNewData == 'thumbJob':
+  #         if not os.path.isdir('../public/assets/content/jobs/jobs-image'):
+  #           os.mkdir('../public/assets/content/jobs/jobs-image')
+  #         soup = BeautifulSoup(value, "html.parser")
+  #         html_img_tags = soup.findAll("img")
+  #         if not html_img_tags:
+  #           listFile = os.listdir(pathIMG)
+  #           for i in listFile:
+  #             if "thumbnail-image" in i:
+  #               os.remove(pathIMG + "thumbnail-image.png")
+  #           selectedJob[loopNewData] = None
+  #         else:
+  #           if not os.path.isdir('../public/assets/content/jobs/jobs-image/' + str(job_id)):
+  #             os.mkdir('../public/assets/content/jobs/jobs-image/' + str(job_id))
+  #           tempIMG = []
+  #           for tag in html_img_tags:
+  #             tempIMG.append(tag['src'])
+  #           img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
+  #           if img:
+  #             listFile = os.listdir(pathIMG)
+  #             for i in listFile:
+  #               if "thumbnail-image" in i:
+  #                 os.remove(pathIMG + "thumbnail-image.png")
+  #             decodeData = base64.b64decode(img[0])
+  #             source = pathIMG + 'thumbnail-image.png'
+  #             splitSource = re.findall(r'public(.*)', source, re.I | re.M)
+  #             image_result = open(source, 'wb')
+  #             image_result.write(decodeData)
+  #             image_result.close()
+  #             # temp[loopNewData] = splitSource[0]
+  #             selectedJob[loopNewData] = splitSource[0]
+  #           # else:
+  #           #   temp[loopNewData] = loadInner[loopNewData]
+  #             # soup2 = BeautifulSoup(str(value), 'html.parser')
+  #             # image = soup2.find('img')
+  #             # print(image['src'])
+  #             # reformat = '/'+image['src']
+  #             # temp[loopNewData] = reformat
+  #       # elif loopNewData == 'name':
+  #       #   temp[loopNewData] = value
+  #       #   selectedJob[loopNewData] = value
+  #       # elif loopNewData == 'specialization':
+  #       #   temp[loopNewData] = value
+  #       #   selectedJob[loopNewData] = value
+  #       # elif loopNewData == 'featured':
+  #       #   temp[loopNewData] = value
+  #       #   selectedJob[loopNewData] = value
+  #       # elif loopNewData == 'description':
+  #       #   temp[loopNewData] = value
+  #       # elif loopNewData == 'qualification':
+  #       #   temp[loopNewData] = value
+  #       # elif loopNewData == 'url':
+  #       #   temp[loopNewData] = value
+  #       # elif loopNewData == 'location':
+  #       #   splitLocation = value.split(", ")
+  #       #   # temp[loopNewData] = splitLocation
+  #       #   selectedJob[loopNewData] = splitLocation
+  #       elif loopNewData == 'description' or loopNewData == 'qualification':
+  #         pass
+  #       elif loopNewData == 'specialization':
+  #         value = value.lower()
+  #         selectedJob[loopNewData] = value
+  #       elif loopNewData == 'name':
+  #         selectedJob[loopNewData] = value
+  #       else:
+  #         # temp[loopNewData] = value
+  #         selectedJob[loopNewData] = value
+  #     tempResponse['jobs']['id'] = job_id
+  #     resp = Response(json.dumps(tempResponse), status=201, mimetype='application/json')
+  #   except:
+  #     resp = jsonify("ID Not Found")
+  #
+  #   # print(temp2)
+  #   # temp = dict(job=temp)
+  #   # temp['job']['id'] = job_id
+  #   # read_inner_file.seek(0)
+  #   # read_inner_file.truncate()
+  #   # read_inner_file.write(json.dumps(temp))
+  #   # read_inner_file.close()
+  #   read_file.seek(0)
+  #   read_file.truncate()
+  #   read_file.write(json.dumps(temp2))
+  #   read_file.close()
   return resp
 
 # DELETE Job Data

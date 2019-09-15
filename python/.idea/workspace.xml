@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d946ade6-7587-4a27-a619-ef96783603e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/image1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/image1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/2/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/tag.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/tag.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForEachLoop.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoopPost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoopPut.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoopPut.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PUT.py" beforeDir="false" afterPath="$PROJECT_DIR$/PUT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coba4.py" beforeDir="false" afterPath="$PROJECT_DIR$/coba4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functionToCall.py" beforeDir="false" afterPath="$PROJECT_DIR$/functionToCall.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/getByID.py" beforeDir="false" afterPath="$PROJECT_DIR$/getByID.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/switcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/switcher.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,20 +20,23 @@
           <splitter split-orientation="horizontal" split-proportion="0.43557832">
             <split-first>
               <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                <file pinned="false" current-in-tab="true">
+                <file pinned="false" current-in-tab="false">
                   <entry file="file://$PROJECT_DIR$/functionToCall.py">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="286">
-                        <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+                      <state relative-caret-position="396">
+                        <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+                        <folding>
+                          <element signature="e#0#21#0" expanded="true" />
+                        </folding>
                       </state>
                     </provider>
                   </entry>
                 </file>
-                <file pinned="false" current-in-tab="false">
+                <file pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/LoopPut.py">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="1717">
-                        <caret line="101" column="44" lean-forward="true" selection-start-line="101" selection-start-column="44" selection-end-line="101" selection-end-column="44" />
+                      <state relative-caret-position="294">
+                        <caret line="83" column="30" lean-forward="true" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
                         <folding>
                           <element signature="e#0#22#0" expanded="true" />
                         </folding>
@@ -57,8 +51,8 @@
                 <file pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/coba4.py">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="2225">
-                        <caret line="165" column="34" lean-forward="true" selection-start-line="165" selection-start-column="34" selection-end-line="165" selection-end-column="34" />
+                      <state relative-caret-position="-4718">
+                        <caret line="356" column="26" selection-start-line="356" selection-start-column="22" selection-end-line="356" selection-end-column="26" />
                         <folding>
                           <element signature="e#0#51#0" expanded="true" />
                         </folding>
@@ -80,8 +74,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/switcher.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+                <state relative-caret-position="306">
+                  <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
@@ -89,7 +83,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/POST.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
+                <state relative-caret-position="396">
                   <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
                 </state>
               </provider>
@@ -102,8 +96,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/getByID.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+                <state relative-caret-position="136">
+                  <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
                 </state>
               </provider>
             </entry>
@@ -111,8 +105,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/LoopPost.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-267">
-                  <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+                <state relative-caret-position="221">
+                  <caret line="106" column="20" lean-forward="true" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#29#0" expanded="true" />
                   </folding>
@@ -132,8 +126,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PUT.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+                <state relative-caret-position="605">
+                  <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
                   <folding>
                     <element signature="e#0#30#0" expanded="true" />
                   </folding>
@@ -214,24 +208,24 @@
         <option value="$PROJECT_DIR$/path.py" />
         <option value="$PROJECT_DIR$/ForEachLoop.py" />
         <option value="$PROJECT_DIR$/switcher.py" />
-        <option value="$PROJECT_DIR$/getByID.py" />
         <option value="$PROJECT_DIR$/ForEachLoopPut" />
         <option value="$PROJECT_DIR$/ForEachLoopPost.py" />
         <option value="$PROJECT_DIR$/paths.py" />
         <option value="$PROJECT_DIR$/LoopPost.py" />
         <option value="$PROJECT_DIR$/POST.py" />
-        <option value="$PROJECT_DIR$/LoopPut.py" />
-        <option value="$PROJECT_DIR$/coba4.py" />
-        <option value="$PROJECT_DIR$/PUT.py" />
         <option value="$PROJECT_DIR$/functionToCall.py" />
+        <option value="$PROJECT_DIR$/getByID.py" />
+        <option value="$PROJECT_DIR$/coba4.py" />
+        <option value="$PROJECT_DIR$/LoopPut.py" />
+        <option value="$PROJECT_DIR$/PUT.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="9" />
-    <option name="y" value="-20" />
-    <option name="width" value="1366" />
-    <option name="height" value="728" />
+    <option name="x" value="140" />
+    <option name="y" value="-26" />
+    <option name="width" value="1549" />
+    <option name="height" value="845" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -356,15 +350,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.05637513" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3716143" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3163597" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -400,17 +394,17 @@
     <entry file="file://$PROJECT_DIR$/forArticle.py" />
     <entry file="file://$PROJECT_DIR$/function.py" />
     <entry file="file://$PROJECT_DIR$/testAja.py" />
-    <entry file="file://$PROJECT_DIR$/getByID.py">
+    <entry file="file://$PROJECT_DIR$/switcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state relative-caret-position="306">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/paths.py">
+    <entry file="file://$PROJECT_DIR$/POST.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+        <state relative-caret-position="396">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -421,61 +415,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LoopPut.py">
+    <entry file="file://$PROJECT_DIR$/functionToCall.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1717">
-          <caret line="101" column="44" lean-forward="true" selection-start-line="101" selection-start-column="44" selection-end-line="101" selection-end-column="44" />
+        <state relative-caret-position="396">
+          <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getByID.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LoopPost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-267">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        <state relative-caret-position="221">
+          <caret line="106" column="20" lean-forward="true" selection-start-line="106" selection-start-column="20" selection-end-line="106" selection-end-column="20" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/paths.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/coba4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2225">
-          <caret line="165" column="34" lean-forward="true" selection-start-line="165" selection-start-column="34" selection-end-line="165" selection-end-column="34" />
+        <state relative-caret-position="-4718">
+          <caret line="356" column="26" selection-start-line="356" selection-start-column="22" selection-end-line="356" selection-end-column="26" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/switcher.py">
+    <entry file="file://$PROJECT_DIR$/LoopPut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functionToCall.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/POST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        <state relative-caret-position="294">
+          <caret line="83" column="30" lean-forward="true" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PUT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+        <state relative-caret-position="605">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>

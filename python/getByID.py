@@ -21,7 +21,10 @@ class getById(Path):
     outFromDict = dataLoad['article']
     for key, value in outFromDict.items():
       if key == 'thumbImage':
-        outFromDict[key] = '<p><img src="' + value + '"/></p>'
+        if value != None:
+          outFromDict[key] = '<p><img src="' + value + '"/></p>'
+        else:
+          pass
       elif key == 'article':
         soup = BeautifulSoup(value, "html.parser")
         for img in soup.findAll('img'):
