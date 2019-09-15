@@ -6,10 +6,15 @@ import base64
 import re
 from bs4 import BeautifulSoup
 import functionToCall
+from PUT import put
 
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins":"*"}})
+
+
+def Diff(li1, li2):
+  return (list(set(li1) - set(li2)))
 
 # POST article Data
 @app.route('/api/article/post', methods=['POST'])
@@ -44,203 +49,216 @@ def allArticleList():
 @app.route('/api/article/update/<int:article_id>', methods=['PUT'])
 def updateArticle(article_id):
   updateContent = request.get_json()
-  unloadUpdate = updateContent['article']
-  path = '../public/assets/content/articles/'
-  pathIMG = '../public/assets/content/articles/article-image/' + str(article_id) + '/'
-  temp = {}
-  tempResponse = {}
-  id = article_id
-  with open(path+'data.json', 'r+') as read_file:
-    with open(path+'article/'+str(article_id)+'.json', 'r+') as read_inner_file:
-      data = json.load(read_file)
-      dataPerId = json.load(read_inner_file)
-      temp2 = data.copy()
-      loadDict = temp2['articles']
-      loadInner = dataPerId['article']
-      try:
-        for loop in loadDict:
-            if article_id == loop['id']:
-              selectedArticle = loop
-        for loopNewData, value in unloadUpdate.items():
-          if loopNewData == 'article':
-            soup = BeautifulSoup(value, "html.parser")
-            html_img_tags = soup.findAll("img")
-            if not html_img_tags:
-              listExcThumb = [x for x in os.listdir(pathIMG) if x != 'thumbnail-image.jpg']
-              for item in listExcThumb:
-                os.remove(os.path.join(pathIMG, item))
-              temp[loopNewData] = str(soup)
+  executePUT = put(article_id, updateContent)
+  executePUT.updateArticle()
 
-            else:
-              listExcThumb = [x for x in os.listdir(pathIMG) if x != 'thumbnail-image.jpg']
-              tempIMG = []
-              tempSRC = []
-              for tag in html_img_tags:
-                tempIMG.append(tag['src'])
-
-              tempExcNew = [x for x in tempIMG if not x.startswith('data:image')]
-              tempIMGLast = [x[-1:-11:-1] for x in tempExcNew]
-              reverseTempIMGLast = [x[::-1] for x in tempIMGLast]
-              diffImage = Diff(listExcThumb, reverseTempIMGLast)
-
-              for item in diffImage:
-                os.remove(os.path.join(pathIMG,item))
-
-              countCurrent = 0
-              for item in reverseTempIMGLast:
-                if int(item[-5]) > countCurrent:
-                  countCurrent = int(item[-5])
-
-              for toLocal in tempIMG:
-                if not toLocal.startswith('data:image'):
-                  toLocal = re.search(r'../(\w+.*)',toLocal)
-                  toLocal = toLocal.group(1)
-                  toLocal = 'assets/'+toLocal
-                  tempSRC.append(toLocal)
-
-                img = re.findall(r'base64,(.*)', toLocal, re.I | re.M)
-                if img:
-                  countCurrent += 1
-                  decodeData = base64.b64decode(img[0])
-                  source = pathIMG + "image" + str(countCurrent) + ".jpg"
-                  splitSource = re.findall(r'public/(.*)', source, re.I | re.M)
-                  tempSRC.append(splitSource)
-                  image_result = open(source, 'wb')
-                  image_result.write(decodeData)
-                  image_result.close()
-
-              for iterHTML, iterSRC in zip(html_img_tags, tempSRC):
-                iterHTML['src'] = iterSRC
-              temp[loopNewData] = str(soup)
-          elif loopNewData == 'thumbImage':
-            soup = BeautifulSoup(value, "html.parser")
-            html_img_tags = soup.findAll("img")
-            if not html_img_tags:
-              listFile = os.listdir(pathIMG)
-              for i in listFile:
-                if "thumbnail-image" in i:
-                  os.remove(pathIMG + "thumbnail-image.jpg")
-            else:
-              tempIMG = []
-              for tag in html_img_tags:
-                tempIMG.append(tag['src'])
-              img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
-              if img:
-                listFile = os.listdir(pathIMG)
-                for i in listFile:
-                  if "thumbnail-image" in i:
-                    os.remove(pathIMG + "thumbnail-image.jpg")
-                decodeData = base64.b64decode(img[0])
-                source = pathIMG + 'thumbnail-image.jpg'
-                splitSource = re.findall(r'public(.*)', source, re.I | re.M)
-                image_result = open(source, 'wb')
-                image_result.write(decodeData)
-                image_result.close()
-                temp[loopNewData] = splitSource[0]
-                selectedArticle[loopNewData] = splitSource[0]
-              else:
-                temp[loopNewData] = loadInner[loopNewData]
-                # soup2 = BeautifulSoup(str(value), 'html.parser')
-                # image = soup2.find('img')
-                # print(image['src'])
-                # reformat = '/'+image['src']
-                # temp[loopNewData] = reformat
-          elif loopNewData == 'tag':
-            path = '../public/assets/content/articles/tag.json'
-            tempListTag = []
-            try:
-              openTag = open(path, 'r+')
-              data = json.load(openTag)
-              unpackTags = data['tags']
-              splitText = value.split(',')
-              unpackLoadData = [value['name'] for value in unpackTags if value['id'] == article_id]
-              compareDataValue = Diff(unpackLoadData, splitText)
-              compareValueData = Diff(splitText, unpackLoadData)
-
-              for dataDat in unpackTags[:]:
-                if dataDat['id'] == article_id:
-                  if dataDat['name'] in compareDataValue:
-                    unpackTags.remove(dataDat)
-
-              for dataVal in compareValueData:
-                tempDict = {}
-                tempDict['name'] = dataVal
-                tempDict['id'] = article_id
-                unpackTags.append(tempDict)
-
-              tempDictTag = dict(tags=unpackTags)
-              openTag.seek(0)
-              openTag.truncate()
-              openTag.write(json.dumps(tempDictTag))
-              openTag.close()
-            except IOError:
-              openTag = open(path, 'w')
-              splitText = value.split(',')
-              for x in splitText:
-                tempTag = {}
-                tempTag['name'] = x
-                tempTag['id'] = article_id
-                tempListTag.append(tempTag)
-              tempDictTag = dict(tags=tempListTag)
-              openTag.write(json.dumps(tempDictTag))
-              openTag.close()
-            temp[loopNewData] = value
-            selectedArticle[loopNewData] = value
-          # elif loopNewData == 'date':
-          #   path = '../public/assets/content/articles/date.json'
-          #   try:
-          #     openDate = open(path, 'r+')
-          #     dateContentToDict = {}
-          #     dataDate = json.load(openDate)
-          #     unpackDate = dataDate['dates']
-          #
-          #     contentFormatted = datetime.strptime(value, '%Y-%m-%d').date()
-          #     date = contentFormatted.replace(day=1)
-          #     dateToString = date.strftime('%Y-%m-%d')
-          #
-          #     if not any(d['name'] == dateToString for d in unpackDate):
-          #       dateContentToDict['name'] = dateToString
-          #
-          #     if (dateContentToDict):
-          #       unpackDate.append(dateContentToDict)
-          #
-          #     tempDict = dict(dates=unpackDate)
-          #     openDate.seek(0)
-          #     openDate.truncate()
-          #     openDate.write(json.dumps(tempDict))
-          #     openDate.close()
-          #   except IOError:
-          #     openDate = open(path, 'w')
-          #     contentFormatted = datetime.strptime(value, '%Y-%m-%d').date()
-          #     date = contentFormatted.replace(day=1)
-          #     dateToString = date.strftime('%Y-%m-%d')
-          #     toDict = dict(name=dateToString)
-          #     toList = [toDict]
-          #     tempDict = dict(dates=toList)
-          #     openDate.write(json.dumps(tempDict))
-          #     openDate.close()
-          #   temp[loopNewData] = value
-          #   selectedArticle[loopNewData] = value
-          elif loopNewData == 'title':
-            temp[loopNewData] = value
-            selectedArticle[loopNewData] = value
-          elif loopNewData == 'date':
-            temp[loopNewData] = value
-            selectedArticle[loopNewData] = value
-        tempResponse['articles']['id'] = article_id
-        resp = Response(json.dumps(tempResponse), status=201, mimetype='application/json')
-      except:
-        resp = jsonify("ID Not Found")
-      temp = dict(article=temp)
-      # print(temp)
-      temp['article']['id'] = article_id
-      read_inner_file.seek(0)
-      read_inner_file.truncate()
-      read_inner_file.write(json.dumps(temp))
-    read_file.seek(0)
-    read_file.truncate()
-    # print(temp2)
-    read_file.write(json.dumps(temp2))
+  tempID = dict(id=executePUT.getID())
+  tempResponse = dict(articles=tempID)
+  js = json.dumps(tempResponse)
+  resp = Response(js, status=200, mimetype='application/json')
+  # unloadUpdate = updateContent['article']
+  # path = '../public/assets/content/articles/'
+  # pathIMG = '../public/assets/content/articles/article-image/' + str(article_id) + '/'
+  # temp = {}
+  # tempResponse = {}
+  # id = article_id
+  # with open(path+'data.json', 'r+') as read_file:
+  #   with open(path+'article/'+str(article_id)+'.json', 'r+') as read_inner_file:
+  #     data = json.load(read_file)
+  #     dataPerId = json.load(read_inner_file)
+  #     temp2 = data.copy()
+  #     loadDict = temp2['articles']
+  #     loadInner = dataPerId['article']
+  #     try:
+  #       for loop in loadDict:
+  #           if article_id == loop['id']:
+  #             selectedArticle = loop
+  #       for loopNewData, value in unloadUpdate.items():
+  #         if loopNewData == 'article':
+  #           soup = BeautifulSoup(value, "html.parser")
+  #           html_img_tags = soup.findAll("img")
+  #           if not html_img_tags:
+  #             listExcThumb = [x for x in os.listdir(pathIMG) if x != 'thumbnail-image.jpg']
+  #             for item in listExcThumb:
+  #               os.remove(os.path.join(pathIMG, item))
+  #             temp[loopNewData] = str(soup)
+  #           else:
+  #             listExcThumb = [x for x in os.listdir(pathIMG) if x != 'thumbnail-image.jpg']
+  #             # tempIMG = []
+  #             tempSRC = []
+  #             tempIMG = [tag['src'] for tag in html_img_tags]
+  #             print(tempIMG)
+  #             # for tag in html_img_tags:
+  #             #   tempIMG.append(tag['src'])
+  #
+  #             # print(tempIMG)
+  #
+  #             tempExcNew = [x for x in tempIMG if not x.startswith('data:image')]
+  #             tempIMGLast = [x[-1:-11:-1] for x in tempExcNew]
+  #             reverseTempIMGLast = [x[::-1] for x in tempIMGLast]
+  #             diffImage = Diff(listExcThumb, reverseTempIMGLast)
+  #             print(diffImage)
+  #
+  #             for item in diffImage:
+  #               os.remove(os.path.join(pathIMG,item))
+  #
+  #             countCurrent = 0
+  #             for item in reverseTempIMGLast:
+  #               if int(item[-5]) > countCurrent:
+  #                 countCurrent = int(item[-5])
+  #
+  #             for toLocal in tempIMG:
+  #               print(toLocal)
+  #               if not toLocal.startswith('data:image'):
+  #                 toLocal = re.search(r'../(\w+.*)',toLocal)
+  #                 toLocal = toLocal.group(1)
+  #                 toLocal = 'assets/'+toLocal
+  #                 tempSRC.append(toLocal)
+  #
+  #               img = re.findall(r'base64,(.*)', toLocal, re.I | re.M)
+  #               if img:
+  #                 countCurrent += 1
+  #                 decodeData = base64.b64decode(img[0])
+  #                 source = pathIMG + "image" + str(countCurrent) + ".jpg"
+  #                 splitSource = re.findall(r'public/(.*)', source, re.I | re.M)
+  #                 tempSRC.append(splitSource)
+  #                 image_result = open(source, 'wb')
+  #                 image_result.write(decodeData)
+  #                 image_result.close()
+  #
+  #             for iterHTML, iterSRC in zip(html_img_tags, tempSRC):
+  #               iterHTML['src'] = iterSRC
+  #             temp[loopNewData] = str(soup)
+  #         elif loopNewData == 'thumbImage':
+  #           soup = BeautifulSoup(value, "html.parser")
+  #           html_img_tags = soup.findAll("img")
+  #           if not html_img_tags:
+  #             listFile = os.listdir(pathIMG)
+  #             for i in listFile:
+  #               if "thumbnail-image" in i:
+  #                 os.remove(pathIMG + "thumbnail-image.jpg")
+  #           else:
+  #             tempIMG = []
+  #             for tag in html_img_tags:
+  #               tempIMG.append(tag['src'])
+  #             img = re.findall(r'base64,(.*)', tempIMG[0], re.I | re.M)
+  #             if img:
+  #               listFile = os.listdir(pathIMG)
+  #               for i in listFile:
+  #                 if "thumbnail-image" in i:
+  #                   os.remove(pathIMG + "thumbnail-image.jpg")
+  #               decodeData = base64.b64decode(img[0])
+  #               source = pathIMG + 'thumbnail-image.jpg'
+  #               splitSource = re.findall(r'public(.*)', source, re.I | re.M)
+  #               image_result = open(source, 'wb')
+  #               image_result.write(decodeData)
+  #               image_result.close()
+  #               temp[loopNewData] = splitSource[0]
+  #               selectedArticle[loopNewData] = splitSource[0]
+  #             else:
+  #               temp[loopNewData] = loadInner[loopNewData]
+  #               # soup2 = BeautifulSoup(str(value), 'html.parser')
+  #               # image = soup2.find('img')
+  #               # print(image['src'])
+  #               # reformat = '/'+image['src']
+  #               # temp[loopNewData] = reformat
+  #         elif loopNewData == 'tag':
+  #           path = '../public/assets/content/articles/tag.json'
+  #           tempListTag = []
+  #           try:
+  #             openTag = open(path, 'r+')
+  #             data = json.load(openTag)
+  #             unpackTags = data['tags']
+  #             splitText = value.split(',')
+  #             unpackLoadData = [value['name'] for value in unpackTags if value['id'] == article_id]
+  #             compareDataValue = Diff(unpackLoadData, splitText)
+  #             compareValueData = Diff(splitText, unpackLoadData)
+  #
+  #             for dataDat in unpackTags[:]:
+  #               if dataDat['id'] == article_id:
+  #                 if dataDat['name'] in compareDataValue:
+  #                   unpackTags.remove(dataDat)
+  #
+  #             for dataVal in compareValueData:
+  #               tempDict = {}
+  #               tempDict['name'] = dataVal
+  #               tempDict['id'] = article_id
+  #               unpackTags.append(tempDict)
+  #
+  #             tempDictTag = dict(tags=unpackTags)
+  #             openTag.seek(0)
+  #             openTag.truncate()
+  #             openTag.write(json.dumps(tempDictTag))
+  #             openTag.close()
+  #           except IOError:
+  #             openTag = open(path, 'w')
+  #             splitText = value.split(',')
+  #             for x in splitText:
+  #               tempTag = {}
+  #               tempTag['name'] = x
+  #               tempTag['id'] = article_id
+  #               tempListTag.append(tempTag)
+  #             tempDictTag = dict(tags=tempListTag)
+  #             openTag.write(json.dumps(tempDictTag))
+  #             openTag.close()
+  #           temp[loopNewData] = value
+  #           selectedArticle[loopNewData] = value
+  #         # elif loopNewData == 'date':
+  #         #   path = '../public/assets/content/articles/date.json'
+  #         #   try:
+  #         #     openDate = open(path, 'r+')
+  #         #     dateContentToDict = {}
+  #         #     dataDate = json.load(openDate)
+  #         #     unpackDate = dataDate['dates']
+  #         #
+  #         #     contentFormatted = datetime.strptime(value, '%Y-%m-%d').date()
+  #         #     date = contentFormatted.replace(day=1)
+  #         #     dateToString = date.strftime('%Y-%m-%d')
+  #         #
+  #         #     if not any(d['name'] == dateToString for d in unpackDate):
+  #         #       dateContentToDict['name'] = dateToString
+  #         #
+  #         #     if (dateContentToDict):
+  #         #       unpackDate.append(dateContentToDict)
+  #         #
+  #         #     tempDict = dict(dates=unpackDate)
+  #         #     openDate.seek(0)
+  #         #     openDate.truncate()
+  #         #     openDate.write(json.dumps(tempDict))
+  #         #     openDate.close()
+  #         #   except IOError:
+  #         #     openDate = open(path, 'w')
+  #         #     contentFormatted = datetime.strptime(value, '%Y-%m-%d').date()
+  #         #     date = contentFormatted.replace(day=1)
+  #         #     dateToString = date.strftime('%Y-%m-%d')
+  #         #     toDict = dict(name=dateToString)
+  #         #     toList = [toDict]
+  #         #     tempDict = dict(dates=toList)
+  #         #     openDate.write(json.dumps(tempDict))
+  #         #     openDate.close()
+  #         #   temp[loopNewData] = value
+  #         #   selectedArticle[loopNewData] = value
+  #         elif loopNewData == 'title':
+  #           temp[loopNewData] = value
+  #           selectedArticle[loopNewData] = value
+  #         elif loopNewData == 'date':
+  #           temp[loopNewData] = value
+  #           selectedArticle[loopNewData] = value
+  #       tempResponse['articles']['id'] = article_id
+  #       resp = Response(json.dumps(tempResponse), status=201, mimetype='application/json')
+  #     except:
+  #       resp = jsonify("ID Not Found")
+  #     print(temp)
+  #     temp = dict(article=temp)
+  #     # print(temp)
+  #     temp['article']['id'] = article_id
+  #     read_inner_file.seek(0)
+  #     read_inner_file.truncate()
+  #     read_inner_file.write(json.dumps(temp))
+  #   read_file.seek(0)
+  #   read_file.truncate()
+  #   # print(temp2)
+  #   read_file.write(json.dumps(temp2))
   return resp
 
 # DELETE Article Data

@@ -1,8 +1,8 @@
-from switcher import Switcher
+from paths import Path
 from bs4 import BeautifulSoup
 import json
 
-class getById(Switcher):
+class getById(Path):
   def __init__(self):
     super().__init__()
     self.innerArticles = self.pathFolderArticle + '/article/'

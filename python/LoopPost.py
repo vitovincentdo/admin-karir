@@ -1,31 +1,30 @@
 from bs4 import BeautifulSoup
 from Data_Handling import DataHandling
+from paths import Path
 import base64
 import json
 import os
 import re
 
 
-class looping():
-  def __init__(self, id, content):
-    self.__temp = {}
-    self.__temp2 = {}
-    self.__id = id
-    self.__content = content
-    self.pathArticleImage = '../public/assets/content/articles/article-image'
-    self.pathThoughtImage = '../public/assets/content/thoughts/thoughts-image'
-    self.pathJobImage = '../public/assets/content/jobs/job-image'
+class loopingPOST(Path):
+  def __init__(self):
+    super().__init__()
+    # self.__temp = {}
+    # self.__temp2 = {}
+    # self.__id = id
+    # self.__content = content
 
-  def getTemp(self):
-    return self.__temp
-
-  def getTemp2(self):
-    return self.__temp2
+  # def getTemp(self):
+  #   return self.__temp
+  #
+  # def getTemp2(self):
+  #   return self.__temp2
 
   def Diff(self, li1, li2):
     return (list(set(li1) - set(li2)))
 
-  def ThumbImgToLocal(self, data, argument):
+  def ThumbImgToLocal(self, data, argument, selectedID):
     ImgToFile = DataHandling()
 
     tempIMG = []
@@ -37,7 +36,7 @@ class looping():
     elif argument == 'job':
       setPathToImage = self.pathJobImage
 
-    pathArticleImageId = setPathToImage + '/' + str(self.__id)
+    pathArticleImageId = setPathToImage + '/' + str(selectedID)
     pathArticleImageIdThumb = pathArticleImageId + '/thumbnail-image.jpg'
     ImgToFile.setPath(pathArticleImageIdThumb)
 
@@ -61,14 +60,14 @@ class looping():
 
     return value
 
-  def ArticleToLocal(self, data):
+  def ArticleToLocal(self, data, selectedID):
     ImgToFile = DataHandling()
 
     count = 1
     tempIMG = []
     tempSRC = []
     pathArticleImage = '../public/assets/content/articles/article-image'
-    pathArticleImageId = pathArticleImage + '/' + str(self.__id)
+    pathArticleImageId = pathArticleImage + '/' + str(selectedID)
     pathArticleImageIdImages = pathArticleImageId + '/image'
 
     if data:
@@ -103,7 +102,7 @@ class looping():
       value = None
     return value
 
-  def TagToLocal(self, data):
+  def TagToLocal(self, data, selectedID):
     path = '../public/assets/content/articles/tag.json'
     tempListTag = []
     if data:
@@ -115,19 +114,19 @@ class looping():
           splitText = data.split(',')
         except IOError:
           splitText = data
-        unpackLoadData = [value['name'] for value in unpackTags if value['id'] == self.__id]
+        unpackLoadData = [value['name'] for value in unpackTags if value['id'] == selectedID]
         compareDataValue = self.Diff(unpackLoadData, splitText)
         compareValueData = self.Diff(splitText, unpackLoadData)
 
         for dataDat in unpackTags[:]:
-          if dataDat['id'] == self.__id:
+          if dataDat['id'] == selectedID:
             if dataDat['name'] in compareDataValue:
               unpackTags.remove(dataDat)
 
         for dataVal in compareValueData:
           tempDict = {}
           tempDict['name'] = dataVal
-          tempDict['id'] = self.__id
+          tempDict['id'] = selectedID
           unpackTags.append(tempDict)
 
         tempDictTag = dict(tags=unpackTags)
@@ -144,7 +143,7 @@ class looping():
         for x in splitText:
           tempTag = {}
           tempTag['name'] = x
-          tempTag['id'] = self.__id
+          tempTag['id'] = selectedID
           tempListTag.append(tempTag)
         tempDictTag = dict(tags=tempListTag)
         openTag.write(json.dumps(tempDictTag))
@@ -159,70 +158,3 @@ class looping():
       onlyText = soup.get_text()
       onlyText = onlyText.replace('\n', ' ')
       return onlyText
-
-  def forThumbImage(self, key, value, argument):
-    if argument == 'article':
-      if value == None:
-        returnedData = value
-      else:
-        returnedData = self.ThumbImgToLocal(value, argument)
-      self.__temp[key] = returnedData
-      self.__temp2[key] = returnedData
-
-    elif argument == 'thought':
-      if value == None:
-        returnedData = value
-      else:
-        returnedData = self.ThumbImgToLocal(value, argument)
-      self.__temp[key] = returnedData
-
-    elif argument == 'job':
-      if value == None:
-        returnedData = value
-      else:
-        returnedData = self.ThumbImgToLocal(value, argument)
-      self.__temp[key] = returnedData
-
-  def forOther(self, key, value, argument):
-    if argument == 'article':
-      self.__temp[key] = value
-      self.__temp2[key] = value
-    elif argument == 'thought' or argument == 'job':
-      if value == '':
-        self.__temp[key] = None
-      else:
-        self.__temp[key] = value
-
-  def loopDataArticle(self, argument):
-    for key, value in self.__content.items():
-      for key2, value2 in value.items():
-        if key2 == 'thumbImage':
-          self.forThumbImage(key2, value2, argument)
-        elif key2 == 'article':
-          self.__temp2[key2] = self.ArticleToLocal(value2)
-        elif key2 == 'tag':
-          returnedData = self.TagToLocal(value2)
-          self.__temp[key2] = returnedData
-          self.__temp2[key2] = returnedData
-        else:
-          self.forOther(key2, value2, argument)
-
-  def loopDataThought(self, argument):
-    for key, value in self.__content.items():
-      for key2, value2 in value.items():
-        if key2 == 'thought':
-          self.__temp[key2] = self.thoughtToLocal(value2)
-        elif key2 == 'thumbThought':
-          self.forThumbImage(key2, value2, argument)
-        else:
-          self.forOther(key2, value2, argument)
-
-  def looopDataJob(self, argument):
-    for key, value in self.__content.items():
-      for key2, value2 in value.items():
-        if key2 == 'thumbJob':
-          self.forThumbImage(key2, value2, argument)
-        elif key2 == 'featured':
-          self.__temp[key2] = value2
-        else:
-          self.forOther(key2, value2, argument)

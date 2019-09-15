@@ -1,15 +1,11 @@
+from paths import Path
 import json
 import os
 
-class Switcher():
+class Switcher(Path):
 
   def __init__(self):
-    self.pathArticleData = '../public/assets/content/articles/data.json'
-    self.pathFolderArticle = '../public/assets/content/articles'
-    self.pathThoughtData = '../public/assets/content/thoughts/data.json'
-    self.pathFolderThought = '../public/assets/content/thoughts'
-    self.pathJobData = '../public/assets/content/jobs/data.json'
-    self.pathFolderJob = '../public/assets/content/jobs'
+    super().__init__()
     self.__id = None
     self.__content = None
 

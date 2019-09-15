@@ -1,9 +1,8 @@
-from ForEachLoop import looping
+from POST import post
 from switcher import Switcher
 from Data_Handling import DataHandling
 from getByID import getById
 import os
-import json
 
 
 def toReturnID():
@@ -17,7 +16,7 @@ def forArticle(content, argument):
   forSwitching.setContent(content)
   forSwitching.properties(argument)
 
-  forLooping = looping(forSwitching.getID(), forSwitching.getContent())
+  forLooping = post(forSwitching.getID(), forSwitching.getContent())
   forLooping.loopDataArticle('article')
 
   if not os.path.isdir(forSwitching.pathFolderArticle+'/article'):
@@ -36,7 +35,8 @@ def forThought(content, argument):
   forSwitching.setContent(content)
   forSwitching.properties(argument)
 
-  forLooping = looping(forSwitching.getID(), forSwitching.getContent())
+
+  forLooping = post(forSwitching.getID(), forSwitching.getContent())
   forLooping.loopDataThought('thought')
 
   forData.writeeOuter(forSwitching.pathThoughtData, forLooping.getTemp(), 'thought')
@@ -48,14 +48,13 @@ def forJob(content, argument):
   forSwitching.setContent(content)
   forSwitching.properties(argument)
 
-  forLooping = looping(forSwitching.getID(), forSwitching.getContent())
+  forLooping = post(forSwitching.getID(), forSwitching.getContent())
   forLooping.looopDataJob('job')
 
   forData.writeeOuter(forSwitching.pathJobData, forLooping.getTemp(), 'job')
 
 def getDataById(id, argument):
   getfromId = getById()
-
   getfromId.setID(id)
 
   resp = getfromId.getByIdOuter(argument)
