@@ -1,8 +1,46 @@
-from LoopPut import loopingPUT
+from PUT.LoopPut import loopingPUT
 import json
 
 class put(loopingPUT):
+  """
+  This class is used for updating article, thought, or job data.
 
+=============================================================================================
+  Example updating article data:
+
+  ```python
+  from PUT.PUT import put  #import put
+
+  executePUT = put(article_id, updatedContent)  #declare put with two parameter, the first parameter set the article id and the second parameter set the data that need to be updated.
+
+  executePUT.updateArticle()  #execute the update article function
+=============================================================================================
+  Example updating thought data:
+
+  ```python
+  from PUT.PUT import put  #import put
+
+  executePUT = put(thought_id, updatedContent)  #declare put with two parameter, the first parameter set the thought id and the second parameter set the data that need to be updated.
+
+  executePUT.updateThought()  #execute the update thought function
+=============================================================================================
+  Example updating job data:
+
+  ```python
+  from PUT.PUT import put #import put
+
+  executePUT = put(job_id, updatedContent)  #declare put with two parameter, the first parameter set the job id and the second parameter set the data that need to be updated.
+
+  executePUT.updateJob()  #execute the update article function
+=============================================================================================
+  Example get id (the get id is used for the json response):
+
+  tempID = dict(id=executePUT.getID)  #make an id dictionary by execute the getID function
+  tempResponse = dict(articles=tempID)  #make an articles dictionary which contains tempID
+  js = json.dumps(tempResponse)  #change the dictionary into json formatted string
+  resp = Response(js, status=200, mimetype='application/json')  #make a Response
+
+  """
   def __init__(self, id, content):
     super().__init__()
     self.__temp = {}
@@ -29,7 +67,10 @@ class put(loopingPUT):
       if key == 'article':
         self.__temp2[key] = self.forArticle(value, pathImageById)
       elif key == 'thumbImage':
-        returnedData = self.forThumbImage(value, self.pathArticleImage, pathImageById)
+        if value != None:
+          returnedData = self.forThumbImage(value, self.pathArticleImage, pathImageById)
+        else:
+          returnedData = value
         self.__temp[key] = returnedData
         self.__temp2[key] = returnedData
       elif key == 'tag':

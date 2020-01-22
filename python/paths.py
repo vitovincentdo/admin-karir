@@ -1,3 +1,16 @@
+
+"""
+This class is only used for declaring path to file or to folder
+
+Example:
+
+```python
+from paths import Path
+
+retrievePath = Path() #declare Path
+read_file = open(retrievePath.pathArticleData, 'r') #open a file data.json inside article folder
+"""
+
 class Path():
 
   def __init__(self):

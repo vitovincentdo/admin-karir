@@ -8,18 +8,26 @@ import re
 
 
 class loopingPOST(Path):
+  """
+  this class is used for reusable component in POST
+
+  Example:
+
+  ```python
+  from POST.LoopPOst import loopingPOST
+
+  Example = loopingPOst()  #declare loopingPOSt
+  Example.ThumbImgToLocal(value, argument, id)  #this function is used for handling the new thumbnail image data. it require three parameters, the first one is thumbnail image value in base64 format, the second parameter is the argument to be thrown it could be 'article/thought/job' , the third parameter is the id.
+
+  Example.ArticleToLocal(value, id)  #this function is used for handling the new article data. it require two parameters, the first one is the article data, and the second parameter is the id.
+
+  Example.TagToLocal(value, id)  #this function is used for handling the new tag data. it require two parameters, the first one is the tag data, and the second parameter is the id.
+
+  Example.thoughtToLocal(value)  #this function is used for handling the new thought data, it only require one parameter which is the thought data
+  """
+
   def __init__(self):
     super().__init__()
-    # self.__temp = {}
-    # self.__temp2 = {}
-    # self.__id = id
-    # self.__content = content
-
-  # def getTemp(self):
-  #   return self.__temp
-  #
-  # def getTemp2(self):
-  #   return self.__temp2
 
   def Diff(self, li1, li2):
     return (list(set(li1) - set(li2)))

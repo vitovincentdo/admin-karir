@@ -1,7 +1,7 @@
 import host from 'karir-admin/utils/host';
 import { module, test } from 'qunit';
 
-module('Unit | Utility | host', function(hooks) {
+module('Unit | Utility | host', function() {
 
   // Replace this with your real tests.
   test('it works', function(assert) {

@@ -6,6 +6,25 @@ import base64
 import json
 
 class loopingPUT(Path):
+  """
+  This class is used for reusable component in PUT
+
+  Example:
+
+  ```python
+  from PUT.LoopPut import loopingPUT
+
+  Example = loopingPUT()  #declare loopingPUT
+  Example.forArticle(ArticleContent, pathForArticleImage)  #this function is used for handling the Article data that will updated. it require two parameters, the first one is the article value that want to be updated and the second parameter is the path of the article image folder by id.
+
+  Example.forThumbImage(thumbImageContent, pathToArticleImageFolder, pathToArticleImageById)  #this function is used for handling the thumbnail image that will be updated. it require three parameters, the first parameter is the thumbnail image value in base64 format, the second parameter is the path to the article image folder thet used for checking the existance of the , and the last parameter is the path to the article image by id folder thet used for checking the existance of the thumbnail image
+
+  Example.forTag(TagValue, theRequiredID)  #this function is used for handling the tag data that will be updated. it requires two parameter, the first one is the tag value that want to be updated, then the second parameter is the tag id that want to be updated.
+
+  Example.forThought(data)  #this function is used for handling the thought data.
+
+  """
+
 
   def __init__(self):
     super().__init__()

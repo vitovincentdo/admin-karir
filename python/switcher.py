@@ -3,6 +3,23 @@ import json
 import os
 
 class Switcher(Path):
+  """
+  This class is used for setting an id between the data that exist and not exist.
+
+  Example:
+
+  ```python
+  from POST.switcher import Switcher
+
+  forSwitching = Switcher()  #declare Switcher function
+
+  forSwitching.setContent(data)  #setting the data that want to be POST
+  forSwitching.properties('articleExist/articleNotExist')  #if the thrown argument is 'article/thought/jobExist' it will set the id to the last known id in the article/thought/job data plus 1. if the thrown argument is 'article/thought/jobNotExist' it will set the id to 1
+
+  forSwitching.getID()  #call the id that has been set by the properties
+  forSwitching.getContent()  #call the content value that have been set
+
+  """
 
   def __init__(self):
     super().__init__()
@@ -13,7 +30,7 @@ class Switcher(Path):
     method_name = argument
     
     # Get the method from 'self'. Default to a lambda.
-    method = getattr(self, method_name, lambda: "Invalid month")
+    method = getattr(self, method_name, lambda: "Invalid Argument")
     
     # Call the method as we return it
     return method()

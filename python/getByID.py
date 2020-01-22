@@ -3,6 +3,19 @@ from bs4 import BeautifulSoup
 import json
 
 class getById(Path):
+  """
+  This class is used for getting data from desired requested id.
+
+  Example:
+
+  ```python
+  from getByID import getById
+
+  getFromID = getById() #declare getByID
+  getFromID.setID(article_id)  #set the desired id, pass it through the parameter in the parentheses
+  data = getFromID.getByIdOuter('article')  #get the data based on the id that has been set, pass the argument in the parentheses. the available arguments are 'article', ''thought', or 'job'.
+  """
+
   def __init__(self):
     super().__init__()
     self.innerArticles = self.pathFolderArticle + '/article/'

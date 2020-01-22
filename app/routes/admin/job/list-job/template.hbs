@@ -15,19 +15,19 @@
       </thead>
       <tbody>
         {{#each model as |job|}}
-        <tr>
-          <td>{{job.id}}</td>
-          <td>{{job.name}}</td>
-          <td>{{job.specialization}}</td>
-          <td>{{job.location}}</td>
-          <td>{{job.url}}</td>
-          <td>{{job.featured}}</td>
-          <td>
-            {{#link-to "routes.admin.job.edit-job" job.id class='btn btn-success'}}Edit{{/link-to}}
-            <br>
-            <button class="btn btn-danger" {{action "deleteJob" job}}>Delete</button>
-          </td>
-        </tr>
+          <tr>
+            <td>{{job.id}}</td>
+            <td>{{job.name}}</td>
+            <td>{{job.specialization}}</td>
+            <td>{{job.location}}</td>
+            <td>{{job.url}}</td>
+            <td>{{job.featured}}</td>
+            <td>
+              {{#link-to "routes.admin.job.edit-job" job.id class="btn btn-success"}}Edit{{/link-to}}
+              <br>
+              <button class="btn btn-danger" {{action "deleteJob" job}}>Delete</button>
+            </td>
+          </tr>
         {{/each}}
       </tbody>
     </table>

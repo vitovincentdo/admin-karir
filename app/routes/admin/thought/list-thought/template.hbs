@@ -13,17 +13,17 @@
       </thead>
       <tbody>
         {{#each model as |thought|}}
-        <tr>
-          <td>{{thought.id}}</td>
-          <td>{{thought.name}}</td>
-          <td>{{thought.thought}}</td>
-          <td>{{thought.date}}</td>
-          <td>
-            {{#link-to "routes.admin.thought.edit-thought" thought.id class='btn btn-success'}}Edit{{/link-to}}
-            <br>
-            <button class="btn btn-danger" {{action "deleteThought" thought}}>Delete</button>
-          </td>
-        </tr>
+          <tr>
+            <td>{{thought.id}}</td>
+            <td>{{thought.name}}</td>
+            <td>{{thought.thought}}</td>
+            <td>{{thought.date}}</td>
+            <td>
+              {{#link-to "routes.admin.thought.edit-thought" thought.id class="btn btn-success"}}Edit{{/link-to}}
+              <br>
+              <button class="btn btn-danger" {{action "deleteThought" thought}}>Delete</button>
+            </td>
+          </tr>
         {{/each}}
       </tbody>
     </table>

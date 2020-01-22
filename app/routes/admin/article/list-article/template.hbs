@@ -12,16 +12,16 @@
       </thead>
       <tbody>
         {{#each model as |article|}}
-        <tr>
-          <td>{{article.id}}</td>
-          <td>{{article.title}}</td>
-          <td>{{article.date}}</td>
-          <td>
-            {{#link-to "routes.admin.article.edit-article" article.id class='btn btn-success'}}Edit{{/link-to}}
-            <br>
-            <button class="btn btn-danger" {{action "deleteArticle" article }}>Delete</button>
-          </td>
-        </tr>
+          <tr>
+            <td>{{article.id}}</td>
+            <td>{{article.title}}</td>
+            <td>{{article.date}}</td>
+            <td>
+              {{#link-to "routes.admin.article.edit-article" article.id class="btn btn-success"}}Edit{{/link-to}}
+              <br>
+              <button class="btn btn-danger" {{action "deleteArticle" article }}>Delete</button>
+            </td>
+          </tr>
         {{/each}}
       </tbody>
     </table>

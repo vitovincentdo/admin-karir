@@ -1,7 +1,6 @@
 # karir-admin
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This Karir-admin web app is built using ember.js and python.
 
 ## Prerequisites
 
@@ -10,6 +9,7 @@ You will need the following things properly installed on your computer.
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm)
 * [Ember CLI](https://ember-cli.com/)
+* [Python](https://www.python.org/downloads/)
 * [Google Chrome](https://google.com/chrome/)
 
 ## Installation
@@ -17,12 +17,14 @@ You will need the following things properly installed on your computer.
 * `git clone <repository-url>` this repository
 * `cd karir-admin`
 * `npm install`
+* Visit `1-TO INSTALL PYTHON PACKAGES` folder and Run `For Installing Required Python Pacakges`
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* Visit `2-TO RUN THE APPS` and Run `To Run Back-End Service`
+* Visit `2-TO RUN THE APPS` and Run `To Run Ember`
+* Visit your app at [http://localhost:4201](http://localhost:4201).
+* Visit your tests at [http://localhost:4201/tests](http://localhost:4201/tests).
 
 ### Code Generators
 

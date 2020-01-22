@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { SCREEN_HEIGHT } from 'karir-admin/utils/properties';
-import { jQ, get, set } from 'karir-admin/utils/short';
+import { jQ } from 'karir-admin/utils/short';
 
 export default Component.extend({
 
