@@ -7,6 +7,7 @@ export default Controller.extend({
     toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat',
     image_advtab: true,
     height: 400,
+    readonly: 1,
   },
   jobImageOptions: {
     plugins: 'paste code',
@@ -16,6 +17,7 @@ export default Controller.extend({
     paste_data_images: true,
     image_advtab: true,
     height: 300,
+    readonly: 1,
   },
   actions:{
     valueHasChanged(value){

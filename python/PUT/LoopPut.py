@@ -1,9 +1,10 @@
-from paths import Path
-from bs4 import BeautifulSoup
 import os
 import re
 import base64
 import json
+from os import path
+from Component.paths import Path
+from bs4 import BeautifulSoup
 
 class loopingPUT(Path):
   """
@@ -42,7 +43,13 @@ class loopingPUT(Path):
     soup = BeautifulSoup(data, 'html.parser')
     html_img_tags = soup.find_all('img')
 
-    listExcThumb = [x for x in os.listdir(pathIMG) if x != 'thumbnail-image.jpg']
+    if html_img_tags and not path.exists(pathIMG):
+      os.mkdir(pathIMG)
+
+    try:
+      listExcThumb = [x for x in os.listdir(pathIMG) if x != 'thumbnail-image.jpg']
+    except:
+      listExcThumb = []
 
     if not html_img_tags:
       for item in listExcThumb:

@@ -2,36 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d946ade6-7587-4a27-a619-ef96783603e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/POST/POST.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/image2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article-image/1/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article-image/3/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/article/3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/template.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../app/routes/admin/article/insert-article/template.hbs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/articles/tag.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/articles/tag.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/counter/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/counter/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/jobs/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job-image/1/thumbnail-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/jobs/job-image/2/thumbnail-image.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/2/thumbnail-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/content/thoughts/thoughts-image/2/thumbnail-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/images/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../public/assets/images/logo-blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/../public/assets/images/logo-blue.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data_Handling.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data_Handling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoopPost.py" beforeDir="false" afterPath="$PROJECT_DIR$/POST/LoopPost.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoopPut.py" beforeDir="false" afterPath="$PROJECT_DIR$/PUT/LoopPut.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/POST.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PUT.py" beforeDir="false" afterPath="$PROJECT_DIR$/PUT/PUT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coba4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functionToCall.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/getByID.py" beforeDir="false" afterPath="$PROJECT_DIR$/getByID.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/paths.py" beforeDir="false" afterPath="$PROJECT_DIR$/paths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/switcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/switcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Handling.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POST/LoopPost.py" beforeDir="false" afterPath="$PROJECT_DIR$/POST/LoopPost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/POST/POST.py" beforeDir="false" afterPath="$PROJECT_DIR$/POST/POST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PUT/LoopPut.py" beforeDir="false" afterPath="$PROJECT_DIR$/PUT/LoopPut.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PUT/PUT.py" beforeDir="false" afterPath="$PROJECT_DIR$/PUT/PUT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/getByID.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paths.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/switcher.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,43 +28,10 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Data_Handling.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="138">
-                  <caret line="6" column="93" selection-start-line="6" selection-end-line="6" selection-end-column="93" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="11" column="145" selection-start-line="11" selection-start-column="145" selection-end-line="11" selection-end-column="145" />
-                  <folding>
-                    <element signature="e#0#51#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/getByID.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="92">
-                  <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/paths.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="529">
-                  <caret line="23" column="25" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="25" />
+                <state relative-caret-position="161">
+                  <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
                 </state>
               </provider>
             </entry>
@@ -88,8 +39,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/POST/LoopPost.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="690">
-                  <caret line="24" selection-start-line="24" selection-end-line="24" />
+                <state relative-caret-position="644">
+                  <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
                   <folding>
                     <element signature="e#0#29#0" expanded="true" />
                   </folding>
@@ -97,25 +48,13 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PUT/PUT.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2599">
-                  <caret line="114" column="39" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="39" />
+                <state relative-caret-position="187">
+                  <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
                   <folding>
                     <element signature="e#0#34#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/switcher.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1150">
-                  <caret line="47" column="18" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="18" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -128,10 +67,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/PUT/LoopPut.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="138">
-                  <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+                <state relative-caret-position="417">
+                  <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
                   <folding>
-                    <element signature="e#0#22#0" expanded="true" />
+                    <element signature="e#0#9#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -140,11 +79,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/POST/POST.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="69">
-                  <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-                  <folding>
-                    <element signature="e#1#38#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="1196">
+                  <caret line="54" selection-start-line="54" selection-end-line="54" />
                 </state>
               </provider>
             </entry>
@@ -177,7 +113,6 @@
       <find>getById</find>
       <find>post</find>
       <find>forOther</find>
-      <find>forThumbImage</find>
       <find>forA</find>
       <find>pathArticleImage</find>
       <find>pathFolder</find>
@@ -192,6 +127,7 @@
       <find>thoughtToLocal</find>
       <find>Diff</find>
       <find>jobExist</find>
+      <find>forThumbImage</find>
     </findStrings>
     <replaceStrings>
       <replace>__content</replace>
@@ -226,12 +162,12 @@
         <option value="$PROJECT_DIR$/paths.py" />
         <option value="$PROJECT_DIR$/getByID.py" />
         <option value="$PROJECT_DIR$/Data_Handling.py" />
-        <option value="$PROJECT_DIR$/PUT/PUT.py" />
         <option value="$PROJECT_DIR$/POST/switcher.py" />
-        <option value="$PROJECT_DIR$/PUT/LoopPut.py" />
         <option value="$PROJECT_DIR$/POST/LoopPost.py" />
         <option value="$PROJECT_DIR$/coba4.py" />
         <option value="$PROJECT_DIR$/POST/POST.py" />
+        <option value="$PROJECT_DIR$/PUT/PUT.py" />
+        <option value="$PROJECT_DIR$/PUT/LoopPut.py" />
       </list>
     </option>
   </component>
@@ -426,44 +362,21 @@
     <entry file="file://$PROJECT_DIR$/function.py" />
     <entry file="file://$PROJECT_DIR$/testAja.py" />
     <entry file="file://$PROJECT_DIR$/POST2.py" />
-    <entry file="file://$PROJECT_DIR$/Data_Handling.py">
+    <entry file="file://$PROJECT_DIR$/Data_Handling.py" />
+    <entry file="file://$PROJECT_DIR$/getByID.py" />
+    <entry file="file://$PROJECT_DIR$/paths.py" />
+    <entry file="file://$PROJECT_DIR$/switcher.py" />
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="93" selection-start-line="6" selection-end-line="6" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getByID.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/paths.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PUT/PUT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2599">
-          <caret line="114" column="39" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="161">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/POST/LoopPost.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="644">
+          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -472,40 +385,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/POST/POST.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#1#38#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1196">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/switcher.py">
+    <entry file="file://$PROJECT_DIR$/PUT/PUT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="47" column="18" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="18" />
+        <state relative-caret-position="187">
+          <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="11" column="145" selection-start-line="11" selection-start-column="145" selection-end-line="11" selection-end-column="145" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PUT/LoopPut.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="417">
+          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

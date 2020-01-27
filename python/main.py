@@ -4,9 +4,9 @@ import json
 import os
 import shutil
 from PUT.PUT import put
-from switcher import Switcher
+from Component.switcher import Switcher
 from POST.POST import post
-from getByID import getById
+from Component.getByID import getById
 
 
 """This is the main python file, all the POST, PUT, DELETE, GET BY ID, and GET ALL request will be handled here by using flask microframework."""

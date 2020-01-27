@@ -1,4 +1,4 @@
-from paths import Path
+from Component.paths import Path
 import json
 import os
 

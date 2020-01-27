@@ -65,15 +65,15 @@ class put(loopingPUT):
 
     for key, value in self.__updateContent['article'].items():
       if key == 'article':
-        self.__temp2[key] = self.forArticle(value, pathImageById)
-      elif key == 'thumbImage':
         if value != None:
-          returnedData = self.forThumbImage(value, self.pathArticleImage, pathImageById)
+          self.__temp2[key] = self.forArticle(value, pathImageById)
         else:
-          returnedData = value
-        self.__temp[key] = returnedData
-        self.__temp2[key] = returnedData
-      elif key == 'tag':
+          self.__temp2[key] = value
+      elif key == 'thumbImage' and value != None:
+          returnedData = self.forThumbImage(value, self.pathArticleImage, pathImageById)
+          self.__temp[key] = returnedData
+          self.__temp2[key] = returnedData
+      elif key == 'tag' and value != None:
         returnedData = self.forTag(value, self.__id)
         self.__temp[key] = returnedData
         self.__temp2[key] = returnedData
@@ -108,10 +108,9 @@ class put(loopingPUT):
     selectedThought = next((index for (index, d) in enumerate(dataThoughtOuter) if d['id'] == self.__id))
 
     for key, value in self.__updateContent['thought'].items():
-      if key == 'thumbThought':
-        returnedData = self.forThumbImage(value, self.pathThoughtImage, pathImageById)
-        self.__temp[key] = returnedData
-      elif key == 'thought':
+      if key == 'thumbThought' and value != None:
+        self.__temp[key]= self.forThumbImage(value, self.pathThoughtImage, pathImageById)
+      elif key == 'thought' and value != None:
         self.__temp[key] = self.forThought(value)
       else:
         self.__temp[key] = value
@@ -137,12 +136,8 @@ class put(loopingPUT):
     selectedJob = next((index for (index, d) in enumerate(dataJobOuter) if d['id'] == self.__id))
 
     for key, value in self.__updateContent['job'].items():
-      if key == 'thumbJob':
-        if value == None:
-          returnedData = value
-        else:
-          returnedData = self.forThumbImage(value, self.pathJobImage, pathImageById)
-        self.__temp[key] = returnedData
+      if key == 'thumbJob' and value != None:
+        self.__temp[key] = self.forThumbImage(value, self.pathJobImage, pathImageById)
       elif key == 'description' or key == 'qualification':
         pass
       elif key == 'specialization':

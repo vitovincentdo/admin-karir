@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
-from Data_Handling import DataHandling
-from paths import Path
+from Component.Data_Handling import DataHandling
+from Component.paths import Path
 import base64
 import json
 import os

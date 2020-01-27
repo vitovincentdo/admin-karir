@@ -1,5 +1,5 @@
 from POST.LoopPost import loopingPOST
-from Data_Handling import DataHandling
+from Component.Data_Handling import DataHandling
 import os
 
 class post(loopingPOST):
