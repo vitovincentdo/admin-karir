@@ -22,7 +22,8 @@ module.exports = function(environment) {
       // when it is created
     },
     tinyMCE:{
-      version: 4.9 //default 4.4
+      version: 5.0 ,//default 4.4
+      apiKey: 'y858h58hkpg58kyzen4lowxqm1x0tjzypkgr2bnrkz8mhsr0'
     }
   };
 
